@@ -5,9 +5,9 @@ import logging
 
 # Constants for Microsoft Graph API
 GRAPH_API_URL = 'https://graph.microsoft.com/v1.0'
-TENANT_ID = 'TENANT_ID'  # INPUT_REQUIRED {Replace with your actual tenant ID}
-CLIENT_ID = 'CLIENT_ID'  # INPUT_REQUIRED {Replace with your actual client ID}
-CLIENT_SECRET = 'CLIENT_SECRET'  # INPUT_REQUIRED {Replace with your actual client secret}
+TENANT_ID = '058c37d3-71cf-4a95-94a5-033acaf07be5'  # INPUT_REQUIRED {Replace with your actual tenant ID}
+CLIENT_ID = '00fd4b42-5393-4696-a173-75b237c5fb87'  # INPUT_REQUIRED {Replace with your actual client ID}
+CLIENT_SECRET = 'Mu88Q~d8wuyUu.0J_mhv6TdM7ouqEwamVeF4saTK'  # INPUT_REQUIRED {Replace with your actual client secret}
 SCOPE = 'https://graph.microsoft.com/.default'
 TOKEN_ENDPOINT = f'https://login.microsoftonline.com/{TENANT_ID}/oauth2/v2.0/token'
 # https://login.microsoftonline.com/058c37d3-71cf-4a95-94a5-033acaf07be5/oauth2/v2.0/token

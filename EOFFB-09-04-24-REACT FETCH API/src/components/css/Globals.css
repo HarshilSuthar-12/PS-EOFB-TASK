@@ -75,14 +75,14 @@ body {
   border-radius: 5px;
 }
 
-.nav-icons{
+/* .nav-icons{
   width: 10em;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   height: 50px;
   line-height: 5px;
-}
+} */
 
 .nav-items {
   display: inline-block;
@@ -104,6 +104,24 @@ img {
   margin: 0;
   font-size: 1.5rem;
   /* margin-right: 10rem; */
+}
+
+.nav_username{
+  width: 20em;
+  display: flex;
+  justify-content:  space-evenly ;
+  align-items: center;
+}
+
+
+
+
+.nav_username h3{
+  background-color: var(--primary-color);
+  padding: 10px;
+  color: var(--secondary-color);
+  border-radius: 5px;
+  font-size: 1em;
 }
 
 
@@ -335,7 +353,7 @@ h2 i {
   transition: 0.1s all linear;
 }
 
-/* .loading-bar {
+.loading-bar {
   width: 0;
   height: 4px;
   background-color: var(--button-color);
@@ -348,7 +366,7 @@ h2 i {
 
 .loading {
   width: 100%;
-} */
+}
 
 .loading-bar {
   width: 100%;

@@ -49,51 +49,51 @@ function InformationSection({ userData }) {
             <tbody>
               <tr>
                 <th>Employee ID</th>
-                <td>{userData.employeeDetails.employeeId || "N/A"}</td>
+                <td>{userData.employeeDetails?.employeeId || "N/A"}</td>
               </tr>
               <tr>
                 <th>Name</th>
-                <td>{userData.employeeDetails.name || "N/A"}</td>
+                <td>{userData.employeeDetails?.name || "N/A"}</td>
               </tr>
               <tr>
                 <th>Email</th>
-                <td>{userData.employeeDetails.email || "N/A"}</td>
+                <td>{userData.employeeDetails?.email || "N/A"}</td>
               </tr>
               <tr>
                 <th>Manager</th>
-                <td>{userData.employeeDetails.manager || "N/A"}</td>
+                <td>{userData.employeeDetails?.manager || "N/A"}</td>
               </tr>
               <tr>
                 <th>Position</th>
-                <td>{userData.employeeDetails.position || "N/A"}</td>
+                <td>{userData.employeeDetails?.position || "N/A"}</td>
               </tr>
               <tr>
                 <th>Employee Type</th>
-                <td>{userData.employeeDetails.employeeType || "N/A"}</td>
+                <td>{userData.employeeDetails?.employeeType || "N/A"}</td>
               </tr>
               <tr>
                 <th>Created Date</th>
-                <td>{userData.employeeDetails.creationDate || "N/A"}</td>
+                <td>{userData.employeeDetails?.creationDate || "N/A"}</td>
               </tr>
               <tr>
                 <th>Account Status</th>
-                <td>{userData.employeeDetails.accountStatus || "N/A"}</td>
+                <td>{userData.employeeDetails?.accountStatus || "N/A"}</td>
               </tr>
               <tr>
                 <th>Department</th>
-                <td>{userData.employeeDetails.department || "N/A"}</td>
+                <td>{userData.employeeDetails?.department || "N/A"}</td>
               </tr>
               <tr>
                 <th>City</th>
-                <td>{userData.employeeDetails.city || "N/A"}</td>
+                <td>{userData.employeeDetails?.city || "N/A"}</td>
               </tr>
               <tr>
                 <th>Country</th>
-                <td>{userData.employeeDetails.country || "N/A"}</td>
+                <td>{userData.employeeDetails?.country || "N/A"}</td>
               </tr>
               <tr>
                 <th>Office Location</th>
-                <td>{userData.employeeDetails.officeLocation || "N/A"}</td>
+                <td>{userData.employeeDetails?.officeLocation || "N/A"}</td>
               </tr>
             </tbody>
           </table>

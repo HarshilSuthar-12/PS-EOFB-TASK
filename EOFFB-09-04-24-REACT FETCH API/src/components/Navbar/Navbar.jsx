@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import myLogo from '../Images/3E-logo_tm_full-color_rgb_1.png'; // Import the logo image
 import '../css/Globals.css';
+import Logout from '../Login/Logout';
 
 function Navbar() {
   const [theme, setTheme] = useState('light');
@@ -51,11 +52,10 @@ function Navbar() {
       <img src={myLogo} alt="My Logo" />
       <div className="nav-items">
         <h1 className="navbar-title">Employee OFF-Boarding</h1>
-        {/* Uncomment the following line if needed */}
-        {/* <i id="toggle-dark-mode" className="fa-solid fa-gear"></i> */}
       </div>
-      <div className="aside">
-        <h3>Welcom! {username}</h3>
+      <div className="nav_username">
+        <h3>{username}</h3>
+      <Logout />
       </div>
       {/* Assuming this toggle is for dark mode */}
       <i id="toggle-dark-mode" className="fa-solid fa-circle-half-stroke" onClick={toggleDarkMode}></i>

@@ -2,7 +2,6 @@ import React from 'react';
 import { createBrowserHistory } from 'history';
 
 
-
 const Logout = () => {
 //   const history = useHistory();
 const history = createBrowserHistory();
@@ -12,8 +11,8 @@ const history = createBrowserHistory();
   };
 
   return (
-    <div className='aside'>
-    <button onClick={handleLogout}>Logout</button>
+    <div className='execute-btn'>
+    <button onClick={handleLogout}> Logout</button>
     </div>
   );
 };
