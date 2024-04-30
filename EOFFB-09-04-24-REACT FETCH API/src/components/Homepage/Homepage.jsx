@@ -15,7 +15,7 @@ const Homepage = ({ user }) => {
   const [userData, setUserData] = useState(null);
 
   // Function to fetch user data based on ID
-  const fetchUserData = (userId) => {
+  const fetchUserData =  (userId, callBack) => {
     fetch(`http://127.0.0.1:8000/employee/${userId}`, {
       method: "GET",
       headers: {
@@ -28,10 +28,13 @@ const Homepage = ({ user }) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        return response.json();
+        return  response.json();
+        console.log("Res: - ", res);
       })
       .then((data) => {
         setUserData(data);
+        callBack(data);
+
       })
       .catch((error) => {
         console.error("Error fetching data:", error);

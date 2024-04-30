@@ -24,10 +24,13 @@ function Aside({ onIdSubmit }) {
     if (!validationMessage) {
       setLoading(true);
       try {
-        await onIdSubmit(inputValue);
-        setLoading(false);
-        setInputValue("");
-        setPlaceholderText("Enter INumber");
+     const response =   onIdSubmit(inputValue,(res) => {
+      console.log("onIdSubmit Value: -", res);
+      setLoading(false);
+      setInputValue("");
+      setPlaceholderText("Enter Email ID");
+     });
+      
       } catch (error) {
         setError(error.message || "Error submitting data");
         setLoading(false);

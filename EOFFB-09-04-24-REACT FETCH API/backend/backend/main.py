@@ -97,8 +97,8 @@ async def get_employee_info_route(user_id: str):
 async def offboard_employee(user_id: str, token : Request):
     try:
         logger.info(f"Initiating offboarding for user ID: {user_id}")
-        print("token;",token.headers.get("Authorization"))
-        access_token=token.headers.get("Authorization")
+        access_token=token.headers.get("Authorization").split()
+        print("token;",access_token)
         removed_groups = remove_from_groups(user_id, access_token)
         revoked_licenses = revoke_licenses(user_id, access_token)
         #email_migration_status = migrate_email(user_id, "manager_user_id")  # manager_user_id should be dynamically determined or passed

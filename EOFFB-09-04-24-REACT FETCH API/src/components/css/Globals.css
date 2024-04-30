@@ -372,7 +372,6 @@ h2 i {
   width: 100%;
   height: 5px; /* Adjust height as needed */
   background-color: var(--primary-color); /* Adjust color as needed */
-  position: relative;
   animation: loading-animation 2s linear ;
 }
 

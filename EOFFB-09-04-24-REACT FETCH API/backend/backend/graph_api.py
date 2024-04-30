@@ -161,10 +161,12 @@ def remove_from_groups(user_id: str, accesstoken:  str) -> Dict:
     try:
         #access_token = get_access_token()
         access_token = accesstoken
+        empinfo=fetch_employee_info(user_id)
+        userid=empinfo['id']
         groups = list_employee_groups(user_id)
         for group in groups:
             group_id = group['id']
-            endpoint = f'groups/{group_id}/members/{user_id}/$ref'
+            endpoint = f'groups/{group_id}/members/{userid}/$ref'
             make_graph_api_request(endpoint, access_token, method='DELETE')
         logger.info(f"User {user_id} removed from all groups successfully.")
         return {'status': 'success', 'detail': f'User {user_id} removed from all groups'}
@@ -180,7 +182,9 @@ def revoke_licenses(user_id: str, accesstoken:  str) -> Dict:
     try:
         #access_token = get_access_token()
         access_token=accesstoken
-        endpoint = f'users/{user_id}/assignLicense'
+        empinfo=fetch_employee_info(user_id)
+        userid=empinfo['id']
+        endpoint = f'users/{userid}/assignLicense'
         data = {
             "addLicenses": [],
             "removeLicenses": [license['skuId'] for license in fetch_employee_licenses(user_id)]
