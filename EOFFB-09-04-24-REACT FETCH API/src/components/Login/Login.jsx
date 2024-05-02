@@ -143,6 +143,7 @@ class Login extends Component {
       if (response && response.accessToken){
         localStorage.setItem("token" , response.accessToken);
         localStorage.setItem("username" , response.account.idTokenClaims.name);
+        localStorage.setItem("email" , response.account.username);
       }
       else{
         console.error("response not getting");

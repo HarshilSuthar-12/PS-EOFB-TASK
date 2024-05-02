@@ -2,6 +2,7 @@ import requests
 from typing import Optional, Dict
 from fastapi import HTTPException
 import logging
+from msgraph import GraphServiceClient
 
 # Constants for Microsoft Graph API
 GRAPH_API_URL = 'https://graph.microsoft.com/v1.0'
@@ -29,7 +30,7 @@ def get_access_token() -> str:
         token_response = requests.post(TOKEN_ENDPOINT, data=token_data)
         token_response.raise_for_status() 
         logger.info("Successfully retrieved access token from Microsoft Graph API")
-        print("request 1 :" ,token_response.json())
+        #print("request 1 :" ,token_response.json())
         return token_response.json().get('access_token')
     
     except requests.exceptions.RequestException as e:
@@ -154,20 +155,23 @@ def fetch_employee_licenses(user_id: str) -> list:
         logger.error(f"Error fetching employee licenses for user ID: {user_id} - {e.detail}", exc_info=True)
         raise
 
-def remove_from_groups(user_id: str, accesstoken:  str) -> Dict:
+async def remove_from_groups(user_id: str, accesstoken:  str) -> Dict:
     """
     Remove an employee from all groups by making DELETE requests to the Microsoft Graph API.
     """
     try:
         #access_token = get_access_token()
         access_token = accesstoken
-        empinfo=fetch_employee_info(user_id)
-        userid=empinfo['id']
+        emp_info = fetch_employee_info(user_id)
+        userid = emp_info['id']
         groups = list_employee_groups(user_id)
+        print("group remove:", access_token)
         for group in groups:
             group_id = group['id']
-            endpoint = f'groups/{group_id}/members/{userid}/$ref'
-            make_graph_api_request(endpoint, access_token, method='DELETE')
+            graph_client = GraphServiceClient(credentials, scopes)
+            await graph_client.groups.by_group_id(group_id).members.by_directory_object_id(userid).ref.delete()
+            # endpoint = f'groups/{group_id}/members/{userid}/$ref'
+            # make_graph_api_request(endpoint, access_token, method='DELETE')
         logger.info(f"User {user_id} removed from all groups successfully.")
         return {'status': 'success', 'detail': f'User {user_id} removed from all groups'}
     except HTTPException as e:
@@ -181,9 +185,9 @@ def revoke_licenses(user_id: str, accesstoken:  str) -> Dict:
     """
     try:
         #access_token = get_access_token()
-        access_token=accesstoken
-        empinfo=fetch_employee_info(user_id)
-        userid=empinfo['id']
+        access_token = accesstoken
+        emp_info = fetch_employee_info(user_id)
+        userid = emp_info['id']
         endpoint = f'users/{userid}/assignLicense'
         data = {
             "addLicenses": [],

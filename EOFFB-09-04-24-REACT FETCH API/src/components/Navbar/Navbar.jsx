@@ -43,7 +43,8 @@ function Navbar() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const username = localStorage.getItem("username");
+  const name = localStorage.getItem("name");
+  const email = localStorage.getItem("username");
 
 
   return (
@@ -54,8 +55,9 @@ function Navbar() {
         <h1 className="navbar-title">Employee OFF-Boarding</h1>
       </div>
       <div className="nav_username">
-        <h3>{username}</h3>
-      <Logout />
+        {/* <h3>{name}</h3> */}
+        <h3>{email}</h3>
+      {/* <Logout /> */}
       </div>
       {/* Assuming this toggle is for dark mode */}
       <i id="toggle-dark-mode" className="fa-solid fa-circle-half-stroke" onClick={toggleDarkMode}></i>

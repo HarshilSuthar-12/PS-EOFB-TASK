@@ -4,6 +4,7 @@ import Homepage from './components/Homepage/Homepage'; // Adjust the path as nee
 import Login from './components/Login/Login'; // Adjust the path as needed
 import ErrorBoundary from './components/ErrorBoundry';
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
+import CombinedSection from './components/combineSection/CombineSceiotn';
 
 const App = () => {
   return (

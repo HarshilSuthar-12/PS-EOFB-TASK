@@ -97,22 +97,24 @@ async def get_employee_info_route(user_id: str):
 async def offboard_employee(user_id: str, token : Request):
     try:
         logger.info(f"Initiating offboarding for user ID: {user_id}")
-        access_token=token.headers.get("Authorization").split()
-        print("token;",access_token)
+        authorization: str = token.headers.get('Authorization')
+        token = authorization
+        print("login token;",token)
+        access_token=token
         removed_groups = remove_from_groups(user_id, access_token)
         revoked_licenses = revoke_licenses(user_id, access_token)
         #email_migration_status = migrate_email(user_id, "manager_user_id")  # manager_user_id should be dynamically determined or passed
 
         # Validate removal operations
-        validation_results = validate_removal_operations(user_id)
-        if validation_results['remainingGroups'] or validation_results['remainingLicenses']:
-            logger.error(f"Offboarding process could not be fully completed for user ID: {user_id}. Remaining associations found.")
-            return {
-                "message": "Offboarding process incomplete. Remaining associations found.",
-                "remaining_groups": validation_results['remainingGroups'],
-                "remaining_licenses": validation_results['remainingLicenses'],
-                "email_migration_status": email_migration_status
-            }
+        # validation_results = validate_removal_operations(user_id)
+        # if validation_results['remainingGroups'] or validation_results['remainingLicenses']:
+        #     logger.error(f"Offboarding process could not be fully completed for user ID: {user_id}. Remaining associations found.")
+        #     return {
+        #         "message": "Offboarding process incomplete. Remaining associations found.",
+        #         "remaining_groups": validation_results['remainingGroups'],
+        #         "remaining_licenses": validation_results['remainingLicenses'],
+        #         "email_migration_status": email_migration_status
+        #     }
 
         logger.info("Offboarding process completed successfully")
         return {
