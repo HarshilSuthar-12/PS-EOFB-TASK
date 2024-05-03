@@ -239,7 +239,7 @@ function GroupsSection({ userData }) {
           </h2>
           <div
             style={{
-              transition: "max-height 0.5s ease-in-out",
+              transition: 'max-height 0.5s ease-in-out 0s',
               overflow: "hidden",
               maxHeight: isOpen ? "1000px" : "0",
             }}

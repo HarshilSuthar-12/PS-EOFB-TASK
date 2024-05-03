@@ -140,7 +140,8 @@ function DomainSection({ userData }) {
                     <th>Name</th>
                   </tr>
                   <tr>
-                    <td>{domainData.domainName || "N/A"}</td>
+                  {/* <td>{domainData.domainName || "N/A"}</td> */}
+                    <td>ProductSquads.co</td>
                   </tr>
                 </tbody>
               </table>

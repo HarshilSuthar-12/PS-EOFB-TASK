@@ -127,14 +127,18 @@ const Homepage = ({ user }) => {
           path="/"
           element={
             <div className="container-Homepage">
+              <div className="aside_confirm_section">
               <Aside onIdSubmit={fetchUserData} />
+              <ExecutionComponent fetchUserId={fetchUserId} fetchUserData={fetchUserData} userData={userData} />
+              </div>
               <div className="information-container">
                 <InformationSection userData={userData} />
-                <GroupsSection userData={userData} />
+               <div className="inner_scetion">
+               <GroupsSection userData={userData} />
                 <LicensesSection userData={userData} />
                 <DomainSection userData={userData} />
-                <ExecutionComponent fetchUserId={fetchUserId} fetchUserData={fetchUserData} userData={userData} />
-                <DialogBox userData={userData}/>
+               </div>
+                {/* <DialogBox userData={userData}/> */}
               </div>
             </div>
           }

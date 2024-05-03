@@ -29,90 +29,10 @@ const FinalConfirmationDialog = ({
       <DialogTitle
         sx={{ fontFamily: "Poppins", fontWeight: "Bold", borderRadius: "0px" }}
       >
-        Final Confirmation
+        User is Terminated!
       </DialogTitle>
       <DialogContent dividers>
         <DarkPaper>
-          <table id="information-table" className="section-content">
-            <tbody>
-              <tr>
-                <th>Employee ID</th>
-                <td>
-                  {loading ? (
-                    <CircularProgress size={20} />
-                  ) : (
-                    confirmationData?.employee_info?.employeeID || "N/A"
-                  )}
-                </td>
-              </tr>
-              <tr>
-                <th>Name</th>
-                <td>
-                  {loading ? (
-                    <CircularProgress size={20} />
-                  ) : (
-                    confirmationData?.employee_info?.name || "N/A"
-                  )}
-                </td>
-              </tr>
-              <tr>
-                <th>Email</th>
-                <td>
-                  {loading ? (
-                    <CircularProgress size={20} />
-                  ) : (
-                    confirmationData?.employee_info?.email || "N/A"
-                  )}
-                </td>
-              </tr>
-              <tr>
-                <th>Account Status</th>
-                <td>
-                  {loading ? (
-                    <CircularProgress size={20} />
-                  ) : (
-                    confirmationData?.employee_info?.accountStatus || "N/A"
-                  )}
-                </td>
-              </tr>
-              <tr>
-                <th>Licenses</th>
-                <td>
-                  {loading ? (
-                    <CircularProgress size={20} />
-                  ) : (
-                    <div>
-                      {confirmationData?.employee_info?.licensesActiveStatus?.map(
-                        (license, index) => (
-                          <div key={index}>{license.name}</div>
-                        )
-                      )}
-                      {confirmationData?.employee_info?.licensesActiveStatus
-                        ?.length === 0 && <div>Licenses are removed</div>}
-                    </div>
-                  )}
-                </td>
-              </tr>
-              <tr>
-                <th>Groups</th>
-                <td>
-                  {loading ? (
-                    <CircularProgress size={20} />
-                  ) : (
-                    <div>
-                      {confirmationData?.employee_info?.groupsActiveStatus?.map(
-                        (group, index) => (
-                          <div key={index}>{group.name}</div>
-                        )
-                      )}
-                      {confirmationData?.employee_info?.groupsActiveStatus
-                        ?.length === 0 && <div>Groups are removed</div>}
-                    </div>
-                  )}
-                </td>
-              </tr>
-            </tbody>
-          </table>
         </DarkPaper>
       </DialogContent>
       <DialogActions>

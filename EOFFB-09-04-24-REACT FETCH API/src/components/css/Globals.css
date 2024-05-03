@@ -57,6 +57,9 @@ html::-webkit-scrollbar-thumb {
   transition: 0.1s opacity ease;
   text-decoration: none;
   list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
   background-color: var(--body-background);
@@ -67,7 +70,7 @@ body {
 
 /* Navbar styling */
 .navbar {
-  height: 50px;
+  height: 5em;
   background-color: var(--nav-color);
   padding: 10px;
   display: flex;
@@ -77,15 +80,6 @@ body {
   z-index: 1;
   border-radius: 5px;
 }
-
-/* .nav-icons{
-  width: 10em;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 50px;
-  line-height: 5px;
-} */
 
 .nav-items {
   display: inline-block;
@@ -117,6 +111,24 @@ img {
 }
 
 
+/* .login-page {
+  width: 100%;
+  height: 90vh;
+  background-image: url('../Images/BGIMG.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+  color: var(--secondary-color);
+}
+
+.login-page .content{
+  padding: 30px;
+  display: block;
+ text-align: center;
+} */
 
 
 .nav_username h3{
@@ -162,7 +174,7 @@ img {
 .aside {
   width: 100%;
   max-width: 310px;
-  height: 100%;
+  height: auto;
   padding: 20px;
   background-color: var(--aside-background);
   box-shadow: var(--box-shadow);
@@ -188,10 +200,10 @@ img {
 }
 
 .aside input[type="text"] {
-  width: calc(100% - 80px);
+  width: 100%;
   padding: 13px 40px;
   border-radius: var(--border-radius);
-  margin-top: 5px;
+  margin-top: 10px;
   margin-bottom: 10px;
   outline: none;
   background-color: var(--table-th-color);
@@ -240,12 +252,19 @@ img {
   display: block;
   align-items: center;
   margin: 15px 0 15px 0;
-  background-color:  var(--primary-color);
-  color: var(--secondary-color);
-  padding: 12px 0 12px 12px;
+  /* background-color:  var(--primary-color); */
+  color: var(--primary-color);
+  padding: 1px 0 12px 12px;
   border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
+  font-size:  13px;
+  font-weight: 500;
 }
+
+
+.checkbox-options label{
+  margin: .6em 0 0 0;
+}
+
 
 .checkbox-options label {
   margin-right: 20px;
@@ -255,10 +274,11 @@ img {
 
 .checkbox-options input[type="checkbox"] {
   margin-right: 5px;
-  width: 1.5em ;
-  height: 1.5em;
+  width: 1em ;
+  height: 1em;
   background-color: var(--button-color);
   color: var(--primary-color);
+  padding: 10px;
 }
 
 .checkbox-options label:last-child {
@@ -268,9 +288,16 @@ img {
 
 /* Information container styling */
 .information-container {
+  display: flex;
+  justify-content: space-evenly;
   flex: 1;
   max-width: calc(100% - 370px);
   margin-top: 5px;
+}
+
+.inner_scetion{
+  width: 100%;
+  margin: 0px 20px;
 }
 
 /* User Page */
@@ -281,29 +308,28 @@ img {
 }
 
 .con {
+  width: 100%;
   margin: 1em 0;
   background-color: var(--aside-background);
-  padding: 0 20px;
+  padding: 20px;
   box-shadow: var(--box-shadow);
   overflow: hidden;
   transition: transform 0.4s ease-in-out;
   border-radius: 5px;
 }
-.section-header {
-  cursor: pointer;
-}
 
 .section-content {
   max-height: 0;
   overflow: hidden;
+
 }
 h2 {
   background-color: var(--primary-color);
   padding: 10px;
   color: var(--secondary-color);
   border-radius: 5px;
-  font-size: 1.5em;
-  cursor: pointer;
+  font-size: 1.2em;
+  /* cursor: pointer; */
 }
 
 h2 i {
@@ -320,6 +346,7 @@ h2 i {
   width: 100%;
   margin-top: 20px;
   color: var(--input-field-text-color);
+  font-size: 13px;
   transition: transform 0.4s ease-in-out;
 }
 
@@ -333,6 +360,7 @@ h2 i {
 #domain-table th {
   padding: 15px;
   margin: 5px;
+  font-size: 13px;
   text-align: left;
 }
 
@@ -341,7 +369,8 @@ h2 i {
 #licenses-table th,
 #domain-table th {
   background-color: var(--table-th-color);
-  border: 0.1px solid var(--table-th-color);
+  /* border: 1px solid var(--text-color); */
+  color: var(--primary-color);
   border-radius: 2px;
 }
 
@@ -370,9 +399,10 @@ h2 i {
 }
 .execute-btn {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   height: 5em;
+  margin: 2em 0;
 }
 
 .execute-btn button {
@@ -449,6 +479,86 @@ h2 i {
   border: 1px solid #6f95fe;
   color: #1c3cc9;
 }
+
+
+
+/* Add this CSS to your existing styles or create a new CSS file */
+
+.full-page-loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(17, 17, 17, 0.5); /* Semi-transparent white background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure the loading spinner appears above other content */
+}
+
+.full-page-loading .fa-spinner {
+  font-size: 3em; /* Adjust the size of the spinner */
+  color: #333; /* Adjust the color of the spinner */
+}
+
+/* Adjust other styles as needed */
+
+.aside_confirm_section{
+  width: 20%;
+}
+
+
+.checkbox-options-confirm{
+  width: 84%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 13px;
+  padding: 2em 0em;
+
+}
+.checkbox-options-confirm label{
+  margin: .6em;
+}
+.checkbox-options-confirm input[type="checkbox"] {
+  margin-right: 5px;
+  width: 1em ;
+  height: 1em;
+  background-color: var(--button-color);
+  color: var(--primary-color);
+  padding: 10px;
+}
+
+.execute-btn-confirm {
+  margin: 2em 0;
+}
+
+.execute-btn-confirm button{
+  width: 84%;
+  padding: 10px 25px;
+  margin: 0 10px 0 0;
+  background-color: var(--button-color);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1em;
+  transition: 0.1s all linear;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* Media Query for Responsive Design */
 @media only screen and (max-width: 768px) {

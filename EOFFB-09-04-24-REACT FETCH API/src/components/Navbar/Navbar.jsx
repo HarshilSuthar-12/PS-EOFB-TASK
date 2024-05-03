@@ -62,7 +62,7 @@ function Navbar({loginButton, isAuthenticated}) {
       {/* <Logout /> */}
       </div>
       {/* Assuming this toggle is for dark mode */}
-      <i id="toggle-dark-mode" className="fa-solid fa-circle-half-stroke" onClick={toggleDarkMode}></i>
+      {/* <i id="toggle-dark-mode" className="fa-solid fa-circle-half-stroke" onClick={toggleDarkMode}></i> */}
     </nav>
   );
 }
