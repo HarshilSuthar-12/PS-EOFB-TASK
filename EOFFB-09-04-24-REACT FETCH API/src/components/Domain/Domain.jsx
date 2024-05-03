@@ -80,7 +80,7 @@ import "../css/Globals.css";
 
 // Demo data
 const demoDomainData = {
-  domainName: "Example Domain",
+  domainName: "",
 };
 
 function DomainSection({ userData }) {

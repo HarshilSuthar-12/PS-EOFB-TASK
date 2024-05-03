@@ -192,6 +192,7 @@
 import React from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, CircularProgress } from '@mui/material';
 import { styled } from '@mui/system';
+import { useState, useEffect } from 'react';
 
 // Custom styled Paper component for dark mode
 const DarkPaper = styled('div')({
@@ -205,7 +206,16 @@ const DarkPaper = styled('div')({
     overflow: 'hidden', // Hide overflow to remove scrollbar
 });
 
-const ConfirmationDialog = ({ open, onClose, onConfirm, executionMessage, loading, confirmationData, fetchUserData }) => {
+const ConfirmationDialog = ({ open, onClose, onConfirm, executionMessage, loading, confirmationData, fetchUserData, userData }) => {
+  const [userDetails, setUserDetails] = useState(userData);
+
+  useEffect(() => {
+    if (userData) {
+      setUserDetails(userData);
+      console.log("UserData", userData);
+    }
+  }, [userData]);
+  console.log("userDetails", userDetails);
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
       <DarkPaper>
@@ -224,39 +234,41 @@ const ConfirmationDialog = ({ open, onClose, onConfirm, executionMessage, loadin
                 <tbody>
                   <tr>
                     <th>Employee ID</th>
-                    <td>{confirmationData?.employee_info?.employeeID || 'N/A'}</td>
+                    <td>{userDetails?.employeeID || 'N/A'}</td>
                   </tr>
                   <tr>
                     <th>Name</th>
-                    <td>{confirmationData?.employee_info?.name || 'N/A'}</td>
+                    <td>{userDetails?.name || 'N/A'}</td>
                   </tr>
                   <tr>
                     <th>Email</th>
-                    <td>{confirmationData?.employee_info?.email || 'N/A'}</td>
+                    <td>{userDetails?.email || 'N/A'}</td>
                   </tr>
                   <tr>
                     <th>Account Status</th>
-                    <td>{confirmationData?.employee_info?.accountStatus || 'N/A'}</td>
+                    <td>{userDetails?.accountStatus || 'N/A'}</td>
                   </tr>
                   <tr>
                     <th>Licenses</th>
                     <td>
-                      {confirmationData?.employee_info?.licensesActiveStatus?.map((license, index) => (
+                      {userDetails?.licensesActiveStatus?.map((license, index) => (
                         <div key={index}>{license.name}</div>
                       ))}
-                      {confirmationData?.employee_info?.licensesActiveStatus?.length === 0 && (
-                        <div>Licenses are removed</div>
+                      {userDetails?.licensesActiveStatus?.length === 0 && (
+                        // <div>Licences are removed</div>
+                        <div>{userDetails?.licensesActiveStatus?.name || "N/A"}</div>
                       )}
                     </td>
                   </tr>
                   <tr>
                     <th>Groups</th>
                     <td>
-                      {confirmationData?.employee_info?.groupsActiveStatus?.map((group, index) => (
+                      {userDetails?.groupsActiveStatus?.map((group, index) => (
                         <div key={index}>{group.name}</div>
                       ))}
-                      {confirmationData?.employee_info?.groupsActiveStatus?.length === 0 && (
-                        <div>Groups are removed</div>
+                      {userDetails?.groupsActiveStatus?.length === 0 && (
+                        // <div>Groups are removed</div>
+                        <div>{userDetails?.groupsActiveStatus?.name   || "N/A"}</div>
                       )}
                     </td>
                   </tr>
@@ -270,7 +282,7 @@ const ConfirmationDialog = ({ open, onClose, onConfirm, executionMessage, loadin
           <Button onClick={onConfirm} disabled={loading} variant="contained" color="primary" sx={{  fontFamily: "poppins", fontSize: '1em', padding: '12px 45px' }} >
             YES
           </Button>
-          <Button onClick={onClose} disabled={loading} variant="contained" color="secondary" sx={{  fontFamily: "poppins", fontSize: '1em', padding: '12px 45px' }}>
+          <Button onClick={onClose} disabled={loading} variant="contained" color="error" sx={{  fontFamily: "poppins", fontSize: '1em', padding: '12px 45px' }}>
             NO
           </Button>
         </DialogActions>
@@ -280,3 +292,6 @@ const ConfirmationDialog = ({ open, onClose, onConfirm, executionMessage, loadin
 };
 
 export default ConfirmationDialog;
+
+
+

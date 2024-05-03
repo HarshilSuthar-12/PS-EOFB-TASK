@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { config } from "../../../config";
 import { PublicClientApplication } from "@azure/msal-browser";
 import Homepage from "../Homepage/Homepage"; // Import Homepage component
+import Navbar from "../Navbar/Navbar";
 
 
 class Login extends Component {
@@ -184,7 +185,7 @@ class Login extends Component {
       <div className="App">
         <header className="App-header">{/* Header content */}</header>
         <div>
-          
+          {/* <Navbar /> */}
           {this.state.isAuthenticated ? (
             <Homepage user={this.state.user} /> // Pass user information as props to Homepage component
           ) : (

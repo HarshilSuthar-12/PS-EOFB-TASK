@@ -180,14 +180,14 @@ const demoLicensesData = {
       isDisabled: true,
     },
     {
-      name: "License 2",
-      status: "Inactive",
+      name: "",
+      status: "",
       isChecked: false,
       isDisabled: true,
     },
     {
       activeStatus: true,
-      status: "Active",
+      status: "",
       isChecked: false,
       isDisabled: true,
     },

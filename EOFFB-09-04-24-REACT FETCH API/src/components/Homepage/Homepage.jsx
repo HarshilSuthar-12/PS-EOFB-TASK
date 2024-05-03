@@ -134,7 +134,7 @@ const Homepage = ({ user }) => {
                 <GroupsSection userData={userData} />
                 <LicensesSection userData={userData} />
                 <DomainSection userData={userData} />
-                <ExecutionComponent fetchUserId={fetchUserId} fetchUserData={fetchUserData} />
+                <ExecutionComponent fetchUserId={fetchUserId} fetchUserData={fetchUserData} userData={userData} />
                 <DialogBox userData={userData}/>
               </div>
             </div>

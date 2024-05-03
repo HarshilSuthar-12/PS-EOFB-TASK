@@ -177,7 +177,7 @@ const demoGroupsData = {
       isChecked: false,
       isDisabled: true,
     },
-    { name: "Group 2", isChecked: false, isDisabled: true },
+    { name: "", isChecked: false, isDisabled: true },
     { activeStatus: true, isChecked: false, isDisabled: true },
   ],
 };

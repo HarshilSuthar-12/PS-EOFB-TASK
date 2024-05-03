@@ -117,40 +117,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import "../css/Globals.css";
 
-// "id": "979a02d0-2391-4171-9c02-debcb54e128a",
-//     "name": "Test OB",
-//     "email": "testob@productsquads.co",
-//     "position": "test title",
-//     "creationDate": "2024-04-18T11:09:15Z",
-//     "employeeID": "1111",
-//     "employeeType": "test Emp type",
-//     "city": "testCity",
-//     "officeLocation": "Ahmedabad",
-//     "country": "Inida",
-//     "department": "test department",
-//     "accountStatus": "Inactive",
-//     "manager": {
-//         "id": "7f53c1f7-d554-4f52-914a-e6cce73969df",
-//         "name": "Prasun Madhup",
-//         "email": "prasun.madhup@productsquads.co"
-//     },
-
 // Demo data
 const demoUserData = {
-  name: "John Doe",
-  email: "john.doe@example.com",
-  position: "Software Engineer",
-  creationDate: "2023-01-01",
-  employeeID: "12345",
-  employeeType: "Full-time",
-  city: "New York",
-  officeLocation: "Office A",
-  country: "USA",
-  department: "Engineering",
-  accountStatus: "Active",
+  name: "",
+  email: "",
+  position: "",
+  creationDate: "",
+  employeeID: "",
+  employeeType: "",
+  city: "",
+  officeLocation: "",
+  country: "",
+  department: "",
+  accountStatus: "",
   manager: {
-    managerName: "Jhon Doe",
-    manager_email: "jane@example.com",
+    name: "",
+    email: "",
   },
 };
 
@@ -221,11 +203,11 @@ function InformationSection({ userData }) {
                 </tr>
                 <tr>
                   <th>Manager</th>
-                  <td>{userDetails.manager.managerName || "N/A"}</td>
+                  <td>{userDetails.manager.name || "N/A"}</td>
                 </tr>
                 <tr>
-                  <th>Manager</th>
-                  <td>{userDetails.manager.manager_email || "N/A"}</td>
+                  <th>Manager Email</th>
+                  <td>{userDetails.manager.email || "N/A"}</td>
                 </tr>
                 <tr>
                   <th>Position</th>

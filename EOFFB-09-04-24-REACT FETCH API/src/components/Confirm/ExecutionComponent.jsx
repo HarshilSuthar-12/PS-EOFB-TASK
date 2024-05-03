@@ -174,17 +174,32 @@
 
 
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+// import { useState, useEffect } from 'react';
 import ConfirmationDialog from '../Confirm/ConfirmationDialog'; // Import the new ConfirmationDialog component
 import FinalConfirmationDialog from '../DialogBox/DialogBox'; // Import the FinalConfirmationDialog component
 
-function ExecutionComponent({ fetchUserId }) {
+function ExecutionComponent({ fetchUserId, userData }) {
   const [loading, setLoading] = useState(false);
   const [executionMessage, setExecutionMessage] = useState("");
   const [confirmationData, setConfirmationData] = useState(null);
   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
   const [showFinalConfirmationDialog, setShowFinalConfirmationDialog] = useState(false); // State to control the visibility of FinalConfirmationDialog
+
+
+  const [userDetails, setUserDetails] = useState(userData);
+
+  useEffect(() => {
+    if (userData) {
+      setUserDetails(userData);
+      console.log("UserData", userData);
+    }
+  }, [userData]);
+  console.log("userDetails", userDetails);
+
+
+
 
   const executeAction = () => {
     setShowConfirmationDialog(true);
@@ -257,6 +272,7 @@ function ExecutionComponent({ fetchUserId }) {
         onClose={handleCloseConfirmationDialog}
         onConfirm={confirmOffboarding}
         confirmationData={confirmationData}
+        userData={userData}
       />
 
       {/* Render FinalConfirmationDialog component when showFinalConfirmationDialog is true */}
@@ -273,3 +289,7 @@ function ExecutionComponent({ fetchUserId }) {
 }
 
 export default ExecutionComponent;
+
+
+
+
