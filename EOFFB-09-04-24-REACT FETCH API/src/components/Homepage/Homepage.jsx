@@ -122,7 +122,6 @@ const Homepage = ({ user }) => {
 
   return (
     <>
-      <Navbar />
       <Routes>
         <Route
           path="/"

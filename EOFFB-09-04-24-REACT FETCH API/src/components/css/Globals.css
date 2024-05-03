@@ -235,6 +235,37 @@ img {
   background-color: var(--primary-color);
 }
 
+
+.checkbox-options {
+  display: block;
+  align-items: center;
+  margin: 15px 0 15px 0;
+  background-color:  var(--primary-color);
+  color: var(--secondary-color);
+  padding: 12px 0 12px 12px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.checkbox-options label {
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-options input[type="checkbox"] {
+  margin-right: 5px;
+  width: 1.5em ;
+  height: 1.5em;
+  background-color: var(--button-color);
+  color: var(--primary-color);
+}
+
+.checkbox-options label:last-child {
+  margin-right: 0;
+}
+
+
 /* Information container styling */
 .information-container {
   flex: 1;

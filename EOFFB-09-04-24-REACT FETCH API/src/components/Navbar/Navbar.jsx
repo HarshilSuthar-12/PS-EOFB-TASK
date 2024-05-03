@@ -3,7 +3,7 @@ import myLogo from '../Images/3E-logo_tm_full-color_rgb_1.png'; // Import the lo
 import '../css/Globals.css';
 import Logout from '../Login/Logout';
 
-function Navbar() {
+function Navbar({loginButton, isAuthenticated}) {
   const [theme, setTheme] = useState('light');
 
   // Function to toggle dark mode
@@ -56,7 +56,9 @@ function Navbar() {
       </div>
       <div className="nav_username">
         {/* <h3>{name}</h3> */}
-        <h3>{email}</h3>
+        
+        {loginButton && !isAuthenticated ? loginButton : <h3>{email}</h3>}
+
       {/* <Logout /> */}
       </div>
       {/* Assuming this toggle is for dark mode */}

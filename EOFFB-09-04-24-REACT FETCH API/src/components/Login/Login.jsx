@@ -3,7 +3,7 @@ import { config } from "../../../config";
 import { PublicClientApplication } from "@azure/msal-browser";
 import Homepage from "../Homepage/Homepage"; // Import Homepage component
 import Navbar from "../Navbar/Navbar";
-
+import myLogo from "../Images/3E-logo-Favicon.png";
 
 class Login extends Component {
   constructor(props) {
@@ -19,89 +19,90 @@ class Login extends Component {
 
     // Initialize MSAL client
     this.initializeMsal().then(() => {
-    // After initialization, you can check authentication status or call other MSAL methods
-    this.checkAuthStatus();
-    console.log("this.checkAuthStatus() is Calling...");
-    
-  });
-}
+      // After initialization, you can check authentication status or call other MSAL methods
+      this.checkAuthStatus();
+      console.log("this.checkAuthStatus() is Calling...");
+    });
+  }
 
   async acquireToken() {
     console.log("main acquireToken() is Calling...");
     try {
-        // Check if user is logged in
-        const account = this.publicClientApplication.getAccount();
-        if (account) {
-            // User is logged in, proceed to acquire token
+      // Check if user is logged in
+      const account = this.publicClientApplication.getAccount();
+      if (account) {
+        // User is logged in, proceed to acquire token
 
-            // Acquire token silently
-            const response = await this.publicClientApplication.acquireTokenSilent({
-                scopes: config.SCOPE,
-                account: account,
-            });
-            console.log("response : ", response);
-            // Retrieve the access token from the response
-            const accessToken = response.accessToken;
+        // Acquire token silently
+        const response = await this.publicClientApplication.acquireTokenSilent({
+          scopes: config.SCOPE,
+          account: account,
+        });
+        console.log("response : ", response);
+        // Retrieve the access token from the response
+        const accessToken = response.accessToken;
 
-            if (accessToken) {
-                // Set the access token to the Authorization header
-                const headers = {
-                    // Authorization: `Bearer ${accessToken}`,
-                    "Access-Control-Allow-Origin": "*",
-                    "Content-Type": "application/json", // Example of adding a Content-Type header
-                    // Add other headers as needed
-                };
+        if (accessToken) {
+          // Set the access token to the Authorization header
+          const headers = {
+            // Authorization: `Bearer ${accessToken}`,
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json", // Example of adding a Content-Type header
+            // Add other headers as needed
+          };
 
-                // Now you can use this headers object in your fetch request
-                fetch(`https://login.microsoftonline.com/${config.TENANT_ID}/oauth2/v2.0/token`, {
-                    method: "POST",
-                    headers: headers,
-                });
-
-                // Update state with token information
-                this.setState({
-                    isAuthenticated: true,
-                    accessToken: accessToken,
-                    refreshToken: response.refreshToken,
-                    user: response.account, // Store user information
-                });
-
-                console.log("Session is ON.\nAccess token: ", accessToken);
-
-                // Now you can use this headers object in your fetch request
-                // Example: fetch('your_api_endpoint', { method: 'GET', headers: headers })
-            } else {
-                // Handle case where access token is undefined
-                console.error("Access token is undefined");
-                this.setState({
-                    isAuthenticated: false,
-                    accessToken: null,
-                    refreshToken: null,
-                    user: {},
-                });
+          // Now you can use this headers object in your fetch request
+          fetch(
+            `https://login.microsoftonline.com/${config.TENANT_ID}/oauth2/v2.0/token`,
+            {
+              method: "POST",
+              headers: headers,
             }
+          );
+
+          // Update state with token information
+          this.setState({
+            isAuthenticated: true,
+            accessToken: accessToken,
+            refreshToken: response.refreshToken,
+            user: response.account, // Store user information
+          });
+
+          console.log("Session is ON.\nAccess token: ", accessToken);
+
+          // Now you can use this headers object in your fetch request
+          // Example: fetch('your_api_endpoint', { method: 'GET', headers: headers })
         } else {
-            // User is not logged in
-            this.setState({
-                isAuthenticated: false,
-                accessToken: null,
-                refreshToken: null,
-                user: {},
-            });
-            alert("Session is OFF.");
-        }
-    } catch (error) {
-        // Handle error
-        console.error("Error acquiring access token:", error);
-        this.setState({
+          // Handle case where access token is undefined
+          console.error("Access token is undefined");
+          this.setState({
             isAuthenticated: false,
             accessToken: null,
             refreshToken: null,
             user: {},
+          });
+        }
+      } else {
+        // User is not logged in
+        this.setState({
+          isAuthenticated: false,
+          accessToken: null,
+          refreshToken: null,
+          user: {},
         });
+        alert("Session is OFF.");
+      }
+    } catch (error) {
+      // Handle error
+      console.error("Error acquiring access token:", error);
+      this.setState({
+        isAuthenticated: false,
+        accessToken: null,
+        refreshToken: null,
+        user: {},
+      });
     }
-}
-
+  }
 
   async initializeMsal() {
     console.log("initializeMsal() is Calling...");
@@ -135,18 +136,17 @@ class Login extends Component {
   async login() {
     console.log("login() is Calling...");
     try {
-     const response =  await this.publicClientApplication.loginPopup({
+      const response = await this.publicClientApplication.loginPopup({
         scopes: config.SCOPE,
         prompt: "select_account",
       });
       // response.account.idTokenClaims.name
-      console.log("response:" ,response);
-      if (response && response.accessToken){
-        localStorage.setItem("token" , response.accessToken);
-        localStorage.setItem("username" , response.account.idTokenClaims.name);
-        localStorage.setItem("email" , response.account.username);
-      }
-      else{
+      console.log("response:", response);
+      if (response && response.accessToken) {
+        localStorage.setItem("token", response.accessToken);
+        localStorage.setItem("username", response.account.idTokenClaims.name);
+        localStorage.setItem("email", response.account.username);
+      } else {
         console.error("response not getting");
       }
       this.setState({ isAuthenticated: true }); // Update state upon successful login
@@ -183,17 +183,28 @@ class Login extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">{/* Header content */}</header>
+        <Navbar
+          loginButton={<div className="execute-btn"><button  onClick={() => this.login()}>Login</button></div>}
+          isAuthenticated={this.state.isAuthenticated}
+        />
         <div>
-          {/* <Navbar /> */}
           {this.state.isAuthenticated ? (
-            <Homepage user={this.state.user} /> // Pass user information as props to Homepage component
+            <Homepage user={this.state.user} />
+          ) : (
+            <div className="">
+              {/* <button onClick={() => this.login()}>Login</button> */}
+            </div>
+          )}
+        </div>
+        {/* <div>
+          {this.state.isAuthenticated ? (
+            <Homepage user={this.state.user} /> 
           ) : (
             <div className="aside login-center">
               <button onClick={() => this.login()}>Login with Microsoft</button>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     );
   }
