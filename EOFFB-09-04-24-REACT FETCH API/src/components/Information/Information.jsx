@@ -168,7 +168,7 @@ function InformationSection({ userData }) {
               <i className="fas fa-info-circle"></i> Information
             </span>
             <span style={{ marginLeft: "10px" }}>
-              <FontAwesomeIcon
+              {/* <FontAwesomeIcon
                 icon={faChevronUp}
                 className="icon"
                 style={{
@@ -177,7 +177,7 @@ function InformationSection({ userData }) {
                   transition: "transform 0.5s",
                   transform: isOpen ? "rotate(0deg)" : "rotate(180deg)",
                 }}
-              />
+              /> */}
             </span>
           </h2>
           <div

@@ -236,10 +236,10 @@ function LicensesSection({ userData }) {
             }}
           >
             <span>
-              <i className="fas fa-info-circle"></i> Licenses
+            <i class="fa-solid fa-id-card"></i> Licenses
             </span>
             <span style={{ marginLeft: "10px" }}>
-              <FontAwesomeIcon
+              {/* <FontAwesomeIcon
                 icon={faChevronUp}
                 className="icon"
                 style={{
@@ -248,7 +248,7 @@ function LicensesSection({ userData }) {
                   transition: "transform 0.5s",
                   transform: isOpen ? "rotate(0deg)" : "rotate(180deg)",
                 }}
-              />
+              /> */}
             </span>
           </h2>
           <div
@@ -271,7 +271,7 @@ function LicensesSection({ userData }) {
                       <tr key={index}>
                         <td>{license.name || "N/A"}</td>
                         <td>{license.activeStatus ? "Active" : "Inactive"}</td>
-                        <td>{/* Your checkbox code */}</td>
+                        {/* <td>Your checkbox code</td> */}
                       </tr>
                     ))
                   ) : (

@@ -1,92 +1,41 @@
-// import React, { useState } from 'react';
-// import FinalConfirmationDialog from '../DialogBox/DialogBox'; // Import the FinalConfirmationDialog component
-// import axios from 'axios';
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import ConfirmationDialog from "../Confirm/ConfirmationDialog"; // Import the new ConfirmationDialog component
+// import FinalConfirmationDialog from "../DialogBox/DialogBox"; // Import the FinalConfirmationDialog component
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
-// function ExecutionComponent({ fetchUserId }) {
-//   const [loading, setLoading] = useState(false);
-//   const [executionMessage, setExecutionMessage] = useState("");
-//   const [confirmationData, setConfirmationData] = useState(null); // State to store confirmation data
-//   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false); // State to control visibility of the confirmation dialog
-
-//   const executeAction = () => {
-//     setLoading(true); // Activate loading state before the fetch request
-
-//     const userId = fetchUserId();
-//     console.log("Offboarding user with userId: " + userId);
-
-//     const access_token = localStorage.getItem("token");
-//     // Perform the offboarding action here
-//     fetch(`http://127.0.0.1:8000/offboard/${userId}/confirm`, {
-//       method: 'POST',
-//       headers: {
-//         'Authorization': `Bearer ${access_token}`,
-//         "Access-Control-Allow-Origin": "*", // This header is typically set by the server, not by the client
-//         // Add any other headers you need here
-//       }
-//     })
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error("Network response was not ok");
-//       }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       setExecutionMessage("User offboarded successfully");
-//       setShowConfirmationDialog(true); // Show the confirmation dialog after successful offboarding
-
-//       // Fetch confirmation data after successful offboarding
-//       fetchConfirmationData(userId);
-//     })
-//     .catch((error) => {
-//       console.error("Error offboarding user:", error);
-//       setExecutionMessage("Error offboarding user");
-//       setLoading(false); // Deactivate loading state after the fetch request
-//     });
-//   };
-
-//   const fetchConfirmationData = async (userId) => {
-//     try {
-//       const response = await axios.get(`http://127.0.0.1:8000/offboard/${userId}/confirmation`);
-//       setConfirmationData(response.data);
-//       console.log(response.data);
-//     } catch (error) {
-//       console.error("Error fetching confirmation data:", error);
-//     } finally {
-//       setLoading(false);
-//     }
-//   };
-
-//   const handleCloseConfirmationDialog = () => {
-//     setShowConfirmationDialog(false);
-//   };
-
-//   return (
-//     <div>
-//       <div className="execute-btn">
-//         <button id="executeButton" onClick={executeAction} disabled={loading}>
-//           Confirm
-//         </button>
-//       </div>
-//       {loading && <div className="loading-bar" id="loadingBar"></div>}
-//       {executionMessage && <div className="message-box">{executionMessage}</div>}
-
-//       {/* Render FinalConfirmationDialog component when showConfirmationDialog is true */}
-//       <FinalConfirmationDialog open={showConfirmationDialog} onClose={handleCloseConfirmationDialog} confirmationData={confirmationData} />
-//     </div>
-//   );
-// }
-
-// export default ExecutionComponent;
-
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import ConfirmationDialog from '../Confirm/ConfirmationDialog'; // Import the new ConfirmationDialog component
-
-// function ExecutionComponent({ fetchUserId }) {
+// function ExecutionComponent({ fetchUserId, userData }) {
 //   const [loading, setLoading] = useState(false);
 //   const [executionMessage, setExecutionMessage] = useState("");
 //   const [confirmationData, setConfirmationData] = useState(null);
 //   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
+//   const [showFinalConfirmationDialog, setShowFinalConfirmationDialog] =
+//     useState(false); // State to control the visibility of FinalConfirmationDialog
+
+//   const [userDetails, setUserDetails] = useState(userData);
+//   useEffect(() => {
+//     if (userData) {
+//       setUserDetails(userData);
+//       console.log("UserData", userData);
+//     }
+//   }, [userData]);
+//   console.log("userDetails", userDetails);
+
+//   const [domains, setDomains] = useState({
+//     "Disable account": true,
+//     "Move to OU": true,
+//     "Removed Groups": true,
+//     "Removed Licences": true,
+//     "Convert to shared mailbox": true,
+//     "Set out office": true,
+//     "Deligate to manager": true,
+//   });
+
+//   const handleCheckboxChange = (event) => {
+//     const { name, checked } = event.target;
+//     setDomains({ ...domains, [name]: checked });
+//   };
 
 //   const executeAction = () => {
 //     setShowConfirmationDialog(true);
@@ -100,34 +49,38 @@
 
 //     const access_token = localStorage.getItem("token");
 //     fetch(`http://127.0.0.1:8000/offboard/${userId}/confirm`, {
-//       method: 'POST',
+//       method: "POST",
 //       headers: {
-//         'Authorization': `Bearer ${access_token}`,
+//         Authorization: `Bearer ${access_token}`,
 //         "Access-Control-Allow-Origin": "*",
-//       }
+//       },
 //     })
-//     .then((response) => {
-//       if (!response.ok) {
-//         throw new Error("Network response was not ok");
-//       }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       setExecutionMessage("User offboarded successfully");
-//       fetchConfirmationData(userId);
-//     })
-//     .catch((error) => {
-//       console.error("Error offboarding user:", error);
-//       setExecutionMessage("Error offboarding user");
-//       setLoading(false);
-//     });
+//       .then((response) => {
+//         if (!response.ok) {
+//           throw new Error("Network response was not ok");
+//         }
+//         return response.json();
+//       })
+//       .then((data) => {
+//         setExecutionMessage("User offboarded successfully");
+//         fetchConfirmationData(userId);
+//         setShowFinalConfirmationDialog(true); // Set showFinalConfirmationDialog to true after successful offboarding
+//         setLoading(false);
+//       })
+//       .catch((error) => {
+//         console.error("Error offboarding user:", error);
+//         setExecutionMessage("Error offboarding user");
+//         // setLoading(false);
+//       });
 
 //     setShowConfirmationDialog(false);
 //   };
 
 //   const fetchConfirmationData = async (userId) => {
 //     try {
-//       const response = await axios.get(`http://127.0.0.1:8000/offboard/${userId}/confirmation`);
+//       const response = await axios.get(
+//         `http://127.0.0.1:8000/offboard/${userId}/confirmation`
+//       );
 //       setConfirmationData(response.data);
 //       console.log(response.data);
 //     } catch (error) {
@@ -143,23 +96,341 @@
 //   };
 
 //   return (
-//     <div>
-//       <div className="execute-btn">
-//         <button id="executeButton" onClick={executeAction} disabled={loading}>
-//           Confirm
-//         </button>
-//       </div>
-//       {loading && <div className="loading-bar" id="loadingBar"></div>}
-//       {executionMessage && <div className="message-box">{executionMessage}</div>}
+//     <>
+//       {loading && <div className="full-page-loading" id="loadingBar"></div>}
+//       {executionMessage && (
+//         <div className="message-box">{executionMessage}</div>
+//       )}
+//       <div className="aside">
+//         <h2>
+//           <i className="fas fa-lock"></i> Confirmation
+//         </h2>
+//         <div className="checkbox-options-confirm">
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Disable account"
+//               checked={domains["Disable account"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Disable account
+//           </label>
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Move to OU"
+//               checked={domains["Move to OU"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Move to OU
+//           </label>
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Removed Groups"
+//               checked={domains["Removed Groups"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Removed Groups
+//           </label>
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Removed Licences"
+//               checked={domains["Removed Licences"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Removed Licences
+//           </label>
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Convert to shared mailbox"
+//               checked={domains["Convert to shared mailbox"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Convert to shared mailbox
+//           </label>
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Set out office"
+//               checked={domains["Set out office"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Set out office
+//           </label>
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Deligate to manager"
+//               checked={domains["Deligate to manager"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Deligate to manager
+//           </label>
+//         </div>
+//         <div className="">
+//           <button id="executeButton" onClick={executeAction} disabled={loading}>
+//             {/* {loading ? <FontAwesomeIcon icon={faSpinner} spin /> : "Confirm"} */}
+//             Confirm
+//           </button>
+//         </div>
 
-//       {/* Render ConfirmationDialog component when showConfirmationDialog is true */}
-//       <ConfirmationDialog
-//         open={showConfirmationDialog}
-//         onClose={handleCloseConfirmationDialog}
-//         onConfirm={confirmOffboarding}
-//         confirmationData={confirmationData}
-//       />
-//     </div>
+//         {/* Render ConfirmationDialog component when showConfirmationDialog is true */}
+//         <ConfirmationDialog
+//           open={showConfirmationDialog}
+//           onClose={handleCloseConfirmationDialog}
+//           onConfirm={confirmOffboarding}
+//           confirmationData={confirmationData}
+//           userData={userData}
+//         />
+
+//         {/* Render FinalConfirmationDialog component when showFinalConfirmationDialog is true */}
+//         {showFinalConfirmationDialog && (
+//           <FinalConfirmationDialog
+//             open={showFinalConfirmationDialog}
+//             onClose={() => setShowFinalConfirmationDialog(false)}
+//             confirmationData={confirmationData}
+//             loading={loading}
+//           />
+//         )}
+//       </div>
+//     </>
+//   );
+// }
+
+// export default ExecutionComponent;
+
+// import React, { useState, useEffect } from "react";
+// import axios from "axios";
+// import ConfirmationDialog from "../Confirm/ConfirmationDialog"; // Import the new ConfirmationDialog component
+// import FinalConfirmationDialog from "../DialogBox/DialogBox"; // Import the FinalConfirmationDialog component
+// import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material"; // Import Dialog components from Material-UI
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+
+// function ExecutionComponent({ fetchUserId, userData }) {
+//   const [loading, setLoading] = useState(false);
+//   const [executionMessage, setExecutionMessage] = useState("");
+//   const [confirmationData, setConfirmationData] = useState(null);
+//   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
+//   const [showFinalConfirmationDialog, setShowFinalConfirmationDialog] = useState(false); // State to control the visibility of FinalConfirmationDialog
+//   const [errorDialogOpen, setErrorDialogOpen] = useState(false); // State to control the visibility of error dialog
+
+//   const [userDetails, setUserDetails] = useState(userData);
+//   useEffect(() => {
+//     if (userData) {
+//       setUserDetails(userData);
+//       console.log("UserData", userData);
+//     }
+//   }, [userData]);
+//   console.log("userDetails", userDetails);
+
+//   const [domains, setDomains] = useState({
+//     "Disable account": true,
+//     "Move to OU": true,
+//     "Removed Groups": true,
+//     "Removed Licences": true,
+//     "Convert to shared mailbox": true,
+//     "Set out office": true,
+//     "Deligate to manager": true,
+//   });
+
+//   const handleCheckboxChange = (event) => {
+//     const { name, checked } = event.target;
+//     setDomains({ ...domains, [name]: checked });
+//   };
+
+//   const executeAction = () => {
+//     setShowConfirmationDialog(true);
+//   };
+
+//   const confirmOffboarding = () => {
+//     setLoading(true);
+
+//     const userId = fetchUserId();
+//     console.log("Offboarding user with userId: " + userId);
+
+//     if (userId === undefined) {
+//       setExecutionMessage("User ID is undefined. Offboarding cannot be confirmed.");
+//       setErrorDialogOpen(true);
+//       setLoading(false);
+//       setShowConfirmationDialog(false);
+//       return;
+//     }
+
+//     const access_token = localStorage.getItem("token");
+//     fetch(`http://127.0.0.1:8000/offboard/${userId}/confirm`, {
+//       method: "POST",
+//       headers: {
+//         Authorization: `Bearer ${access_token}`,
+//         "Access-Control-Allow-Origin": "*",
+//       },
+//     })
+//       .then((response) => {
+//         if (!response.ok) {
+//           throw new Error("Network response was not ok");
+//         }
+//         return response.json();
+//       })
+//       .then((data) => {
+//         setExecutionMessage("User offboarded successfully");
+//         fetchConfirmationData(userId);
+//         setShowFinalConfirmationDialog(true); // Set showFinalConfirmationDialog to true after successful offboarding
+//         setLoading(false);
+//       })
+//       .catch((error) => {
+//         console.error("Error offboarding user:", error);
+//         setExecutionMessage("Error offboarding user");
+//         // setLoading(false);
+//       });
+
+//     setShowConfirmationDialog(false);
+//   };
+
+//   const fetchConfirmationData = async (userId) => {
+//     try {
+//       const response = await axios.get(
+//         `http://127.0.0.1:8000/offboard/${userId}/confirmation`
+//       );
+//       setConfirmationData(response.data);
+//       console.log(response.data);
+//     } catch (error) {
+//       console.error("Error fetching confirmation data:", error);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   const handleCloseConfirmationDialog = () => {
+//     setShowConfirmationDialog(false);
+//     setExecutionMessage("Offboarding process cancelled");
+//   };
+
+//   const handleCloseErrorDialog = () => {
+//     setErrorDialogOpen(false);
+//     setExecutionMessage("");
+//   };
+
+//   return (
+//     <>
+//       {/* Error dialog */}
+//       <Dialog open={errorDialogOpen} onClose={handleCloseErrorDialog}>
+//         <DialogTitle>Error</DialogTitle>
+//         <DialogContent>
+//           <div>User ID is undefined. Offboarding cannot be confirmed.</div>
+//         </DialogContent>
+//         <DialogActions>
+//           <Button onClick={handleCloseErrorDialog} color="primary">
+//             Close
+//           </Button>
+//         </DialogActions>
+//       </Dialog>
+
+//       {loading && <div className="full-page-loading" id="loadingBar"></div>}
+//       {executionMessage && (
+//         <div className="message-box">{executionMessage}</div>
+//       )}
+//       <div className="aside">
+//         <h2>
+//           <i className="fas fa-lock"></i> Confirmation
+//         </h2>
+//         <div className="checkbox-options-confirm">
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Disable account"
+//               checked={domains["Disable account"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Disable account
+//           </label>
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Move to OU"
+//               checked={domains["Move to OU"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Move to OU
+//           </label>
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Removed Groups"
+//               checked={domains["Removed Groups"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Removed Groups
+//           </label>
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Removed Licences"
+//               checked={domains["Removed Licences"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Removed Licences
+//           </label>
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Convert to shared mailbox"
+//               checked={domains["Convert to shared mailbox"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Convert to shared mailbox
+//           </label>
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Set out office"
+//               checked={domains["Set out office"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Set out office
+//           </label>
+//           <label>
+//             <input
+//               type="checkbox"
+//               name="Deligate to manager"
+//               checked={domains["Deligate to manager"]}
+//               onChange={handleCheckboxChange}
+//             />
+//             Deligate to manager
+//           </label>
+//         </div>
+//         <div className="">
+//           <button
+//             id="executeButton"
+//             onClick={executeAction}
+//             disabled={loading}
+//           >
+//             Confirm
+//           </button>
+//         </div>
+
+//         {/* Render ConfirmationDialog component when showConfirmationDialog is true */}
+//         <ConfirmationDialog
+//           open={showConfirmationDialog}
+//           onClose={handleCloseConfirmationDialog}
+//           onConfirm={confirmOffboarding}
+//           confirmationData={confirmationData}
+//           userData={userData}
+//         />
+
+//         {/* Render FinalConfirmationDialog component when showFinalConfirmationDialog is true */}
+//         {showFinalConfirmationDialog && (
+//           <FinalConfirmationDialog
+//             open={showFinalConfirmationDialog}
+//             onClose={() => setShowFinalConfirmationDialog(false)}
+//             confirmationData={confirmationData}
+//             loading={loading}
+//           />
+//         )}
+//       </div>
+//     </>
 //   );
 // }
 
@@ -167,9 +438,15 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { useState, useEffect } from 'react';
 import ConfirmationDialog from "../Confirm/ConfirmationDialog"; // Import the new ConfirmationDialog component
 import FinalConfirmationDialog from "../DialogBox/DialogBox"; // Import the FinalConfirmationDialog component
+import {
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+} from "@mui/material"; // Import Dialog components from Material-UI
 
 function ExecutionComponent({ fetchUserId, userData }) {
   const [loading, setLoading] = useState(false);
@@ -178,6 +455,7 @@ function ExecutionComponent({ fetchUserId, userData }) {
   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
   const [showFinalConfirmationDialog, setShowFinalConfirmationDialog] =
     useState(false); // State to control the visibility of FinalConfirmationDialog
+  const [errorDialogOpen, setErrorDialogOpen] = useState(false); // State to control the visibility of error dialog
 
   const [userDetails, setUserDetails] = useState(userData);
   useEffect(() => {
@@ -198,22 +476,22 @@ function ExecutionComponent({ fetchUserId, userData }) {
     "Deligate to manager": true,
   });
 
-  //   Disable acc
-  // Move to OU
-  // Removed Grps
-
-  // Removed Licence
-
-  // Convert to shared mailbox
-  // Set out office
-  // Deligate to manager
-
   const handleCheckboxChange = (event) => {
     const { name, checked } = event.target;
     setDomains({ ...domains, [name]: checked });
   };
 
   const executeAction = () => {
+    const userId = fetchUserId();
+
+    if (userId === undefined) {
+      setExecutionMessage(
+        "User ID is undefined. Offboarding cannot be confirmed."
+      );
+      setErrorDialogOpen(true);
+      return;
+    }
+
     setShowConfirmationDialog(true);
   };
 
@@ -241,11 +519,12 @@ function ExecutionComponent({ fetchUserId, userData }) {
         setExecutionMessage("User offboarded successfully");
         fetchConfirmationData(userId);
         setShowFinalConfirmationDialog(true); // Set showFinalConfirmationDialog to true after successful offboarding
+        setLoading(false);
       })
       .catch((error) => {
         console.error("Error offboarding user:", error);
         setExecutionMessage("Error offboarding user");
-        setLoading(false);
+        // setLoading(false);
       });
 
     setShowConfirmationDialog(false);
@@ -270,106 +549,143 @@ function ExecutionComponent({ fetchUserId, userData }) {
     setExecutionMessage("Offboarding process cancelled");
   };
 
+  const handleCloseErrorDialog = () => {
+    setErrorDialogOpen(false);
+    setExecutionMessage("");
+  };
+
   return (
-    <div className="aside">
-<h2>
-          <i className="fas fa-lock"></i> Confirmation
-        </h2>
-      <div className="checkbox-options-confirm">
-      
-        <label>
-          <input
-            type="checkbox"
-            name="Disable account"
-            checked={domains["Disable account"]}
-            onChange={handleCheckboxChange}
-          />
-          Disable account
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="Move to OU"
-            checked={domains["Move to OU"]}
-            onChange={handleCheckboxChange}
-          />
-          Move to OU
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="Removed Groups"
-            checked={domains["Removed Groups"]}
-            onChange={handleCheckboxChange}
-          />
-          Removed Groups
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="Removed Licences"
-            checked={domains["Removed Licences"]}
-            onChange={handleCheckboxChange}
-          />
-          Removed Licences
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="Convert to shared mailbox"
-            checked={domains["Convert to shared mailbox"]}
-            onChange={handleCheckboxChange}
-          />
-          Convert to shared mailbox
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="Set out office"
-            checked={domains["Set out office"]}
-            onChange={handleCheckboxChange}
-          />
-          Set out office
-        </label>
-        <label>
-          <input
-            type="checkbox"
-            name="Deligate to manager"
-            checked={domains["Deligate to manager"]}
-            onChange={handleCheckboxChange}
-          />
-          Deligate to manager
-        </label>
-      </div>
-      <div className="">
-        <button id="executeButton" onClick={executeAction} disabled={loading}>
-          Confirm
-        </button>
-      </div>
-      {loading && <div className="loading-bar" id="loadingBar"></div>}
+    <>
+      {/* Error dialog */}
+      <Dialog open={errorDialogOpen} onClose={handleCloseErrorDialog}>
+        <DialogTitle
+          sx={{
+            fontFamily: "Poppins",
+            fontWeight: "bold",
+            textAlign: "center",
+          }}
+        >
+          Error!
+        </DialogTitle>
+        <DialogContent dividers>
+          <div
+            style={{
+              fontFamily: "Poppins",
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
+          >
+            <h3>Email ID is not enterd. Enter the Email ID first!</h3>
+          </div>
+        </DialogContent>
+        <DialogActions style={{ justifyContent: "center" }}></DialogActions>
+
+        <DialogActions>
+          <Button onClick={handleCloseErrorDialog}  sx={{ fontFamily: "poppins", fontSize: "1em", }}>
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {loading && <div className="full-page-loading" id="loadingBar"></div>}
       {executionMessage && (
         <div className="message-box">{executionMessage}</div>
       )}
+      <div className="aside">
+        <h2>
+          <i className="fas fa-lock"></i> Confirmation
+        </h2>
+        <div className="checkbox-options-confirm">
+          <label>
+            <input
+              type="checkbox"
+              name="Disable account"
+              checked={domains["Disable account"]}
+              onChange={handleCheckboxChange}
+            />
+            Disable account
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="Move to OU"
+              checked={domains["Move to OU"]}
+              onChange={handleCheckboxChange}
+            />
+            Move to OU
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="Removed Groups"
+              checked={domains["Removed Groups"]}
+              onChange={handleCheckboxChange}
+            />
+            Removed Groups
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="Removed Licences"
+              checked={domains["Removed Licences"]}
+              onChange={handleCheckboxChange}
+            />
+            Removed Licences
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="Convert to shared mailbox"
+              checked={domains["Convert to shared mailbox"]}
+              onChange={handleCheckboxChange}
+            />
+            Convert to shared mailbox
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="Set out office"
+              checked={domains["Set out office"]}
+              onChange={handleCheckboxChange}
+            />
+            Set out office
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="Deligate to manager"
+              checked={domains["Deligate to manager"]}
+              onChange={handleCheckboxChange}
+            />
+            Deligate to manager
+          </label>
+        </div>
+        <div className="">
+          <button id="executeButton" onClick={executeAction} disabled={loading}>
+            Confirm
+          </button>
+        </div>
 
-      {/* Render ConfirmationDialog component when showConfirmationDialog is true */}
-      <ConfirmationDialog
-        open={showConfirmationDialog}
-        onClose={handleCloseConfirmationDialog}
-        onConfirm={confirmOffboarding}
-        confirmationData={confirmationData}
-        userData={userData}
-      />
-
-      {/* Render FinalConfirmationDialog component when showFinalConfirmationDialog is true */}
-      {showFinalConfirmationDialog && (
-        <FinalConfirmationDialog
-          open={showFinalConfirmationDialog}
-          onClose={() => setShowFinalConfirmationDialog(false)}
+        {/* Render ConfirmationDialog component when showConfirmationDialog is true */}
+        <ConfirmationDialog
+          open={showConfirmationDialog}
+          onClose={handleCloseConfirmationDialog}
+          onConfirm={confirmOffboarding}
           confirmationData={confirmationData}
-          loading={loading}
+          userData={userData}
         />
-      )}
-    </div>
+
+        {/* Render FinalConfirmationDialog component when showFinalConfirmationDialog is true */}
+        {showFinalConfirmationDialog && (
+          <FinalConfirmationDialog
+            open={showFinalConfirmationDialog}
+            onClose={() => setShowFinalConfirmationDialog(false)}
+            confirmationData={confirmationData}
+            loading={loading}
+          />
+        )}
+      </div>
+    </>
   );
 }
 

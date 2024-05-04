@@ -3,8 +3,6 @@ import { config } from "../../../config";
 import { PublicClientApplication } from "@azure/msal-browser";
 import Homepage from "../Homepage/Homepage"; // Import Homepage component
 import Navbar from "../Navbar/Navbar";
-import myLogo from "../Images/3E-logo-Favicon.png";
-import myBackgroundImage from "../Images/BGIMG.jpg"; // Import your background image file
 
 
 class Login extends Component {
@@ -184,10 +182,13 @@ class Login extends Component {
 
   render() {
     return (
-        // <div className="login-page" style={{ backgroundImage: `url(${myBackgroundImage})` }}>
       <div className="App">
         <Navbar
-          loginButton={<div className="execute-btn"><button  onClick={() => this.login()}>Login</button></div>}
+          loginButton={
+            <div className="execute-btn">
+              <button onClick={() => this.login()}>Login</button>
+            </div>
+          }
           isAuthenticated={this.state.isAuthenticated}
         />
         <div>
@@ -199,17 +200,7 @@ class Login extends Component {
             </div>
           )}
         </div>
-        {/* <div>
-          {this.state.isAuthenticated ? (
-            <Homepage user={this.state.user} /> 
-          ) : (
-            <div className="aside login-center">
-              <button onClick={() => this.login()}>Login with Microsoft</button>
-            </div>
-          )}
-        </div> */}
       </div>
-        // </div>
     );
   }
 }

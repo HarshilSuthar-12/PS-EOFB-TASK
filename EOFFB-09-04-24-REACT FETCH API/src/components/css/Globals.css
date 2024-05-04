@@ -54,7 +54,7 @@ html::-webkit-scrollbar-thumb {
 
 * {
   font-family: var(--font-family);
-  transition: 0.1s opacity ease;
+  transition: all 0.2s linear;
   text-decoration: none;
   list-style: none;
   margin: 0;
@@ -65,14 +65,12 @@ body {
   background-color: var(--body-background);
 }
 
-
-
-
 /* Navbar styling */
 .navbar {
-  height: 5em;
+  height: 4em;
   background-color: var(--nav-color);
   padding: 10px;
+  margin: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,8 +85,8 @@ body {
 
 i {
   color: var(--title-color);
-  font-size: 25px;
-  cursor: pointer;
+  font-size: 1em !important;
+  /* cursor: pointer; */
 }
 
 img {
@@ -103,13 +101,12 @@ img {
   /* margin-right: 10rem; */
 }
 
-.nav_username{
+.nav_username {
   width: 20em;
   display: flex;
-  justify-content:  space-evenly ;
+  justify-content: space-evenly;
   align-items: center;
 }
-
 
 /* .login-page {
   width: 100%;
@@ -130,15 +127,13 @@ img {
  text-align: center;
 } */
 
-
-.nav_username h3{
+.nav_username h3 {
   background-color: var(--primary-color);
-  padding: 10px;
+  padding: 0.7em 1em;
   color: var(--secondary-color);
   border-radius: 5px;
-  font-size: 1em;
+  font-size: 1.1em;
 }
-
 
 #toggle-dark-mode {
   color: var(--body-background);
@@ -147,10 +142,10 @@ img {
   border-radius: 50px;
   background-color: var(--button-color);
   position: fixed;
-  top: calc(100% - 100px); 
-  right: 50px; 
-  z-index: 9999; 
-  animation: rotateIcon 8s linear infinite; 
+  top: calc(100% - 100px);
+  right: 50px;
+  z-index: 9999;
+  animation: rotateIcon 8s linear infinite;
 }
 
 @keyframes rotateIcon {
@@ -166,8 +161,8 @@ img {
 .container-Homepage {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 20px;
+  justify-content: space-evenly;
+  padding: 0 1em;
 }
 
 /* Aside styling */
@@ -201,16 +196,26 @@ img {
 
 .aside input[type="text"] {
   width: 100%;
-  padding: 13px 40px;
-  border-radius: var(--border-radius);
+  padding: 12px 40px;
+  /* border-radius: var(--border-radius); */
   margin-top: 10px;
   margin-bottom: 10px;
   outline: none;
   background-color: var(--table-th-color);
   border: var(--border-color);
   color: var(--input-field-text-color);
-  box-shadow: var(--box-shadow);
+  /* box-shadow: var(--box-shadow); */
+  border: none;
+  border-radius: 50px;
 }
+
+.disabled-button{
+  background-color: #ccc !important;
+  cursor: not-allowed !important;
+}
+
+
+
 .input-wrapper {
   position: relative;
 }
@@ -220,8 +225,8 @@ img {
   left: 1em;
   top: 49%;
   transform: translateY(-50%);
-  color: var(--icon-color);
-  font-size: 15px;
+  color: var(--primary-color);
+  font-size: 20px;
 }
 
 .input-wrapper input {
@@ -238,7 +243,7 @@ img {
   cursor: pointer;
   font-weight: 500;
   font-size: 1em;
-  transition: 0.1s all linear;
+  transition: all 0.2s linear;
   margin-top: 0;
 }
 
@@ -247,44 +252,70 @@ img {
   background-color: var(--primary-color);
 }
 
-
 .checkbox-options {
   display: block;
   align-items: center;
   margin: 15px 0 15px 0;
   /* background-color:  var(--primary-color); */
-  color: var(--primary-color);
+  /* color: var(--primary-color); */
   padding: 1px 0 12px 12px;
   border-radius: var(--border-radius);
-  font-size:  13px;
+  font-size: 13px;
   font-weight: 500;
 }
 
-
-.checkbox-options label{
-  margin: .6em 0 0 0;
-}
-
+/* .checkbox-options label{
+  
+} */
 
 .checkbox-options label {
-  margin-right: 20px;
+  margin: 0.6em 0 1em 0em;
   display: flex;
   align-items: center;
 }
 
+.checkbox-options label:hover {
+  margin: 0.6em 0 1em 1em;
+  color: var(--button-color);
+}
+
 .checkbox-options input[type="checkbox"] {
+  appearance: none;
+  --webkit-appearance: none;
   margin-right: 5px;
-  width: 1em ;
+  width: 1em;
   height: 1em;
   background-color: var(--button-color);
   color: var(--primary-color);
   padding: 10px;
+  border-radius: 3px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s linear;
+}
+
+.checkbox-options input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+}
+
+.checkbox-options input[type="checkbox"]:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00c";
+  color: var(--secondary-color);
+  font-size: 1em;
+  display: none;
+}
+
+.checkbox-options input[type="checkbox"]:checked:after {
+  display: block;
 }
 
 .checkbox-options label:last-child {
   margin-right: 0;
 }
-
 
 /* Information container styling */
 .information-container {
@@ -295,7 +326,7 @@ img {
   margin-top: 5px;
 }
 
-.inner_scetion{
+.inner_scetion {
   width: 100%;
   margin: 0px 20px;
 }
@@ -321,7 +352,6 @@ img {
 .section-content {
   max-height: 0;
   overflow: hidden;
-
 }
 h2 {
   background-color: var(--primary-color);
@@ -332,11 +362,12 @@ h2 {
   /* cursor: pointer; */
 }
 
-h2 i {
+h2 i,
+h3 i {
   margin: 0 0.5em;
   color: var(--secondary-color);
   font-size: 0.8em;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 #information-table,
@@ -369,9 +400,21 @@ h2 i {
 #licenses-table th,
 #domain-table th {
   background-color: var(--table-th-color);
-  /* border: 1px solid var(--text-color); */
   color: var(--primary-color);
   border-radius: 2px;
+  transition: all 0.2s linear;
+}
+
+#information-table th:hover,
+tr:hover,
+#groups-table th:hover,
+tr:hover,
+#licenses-table th:hover,
+tr:hover,
+#domain-table th:hover,
+tr:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
 }
 
 .section-content {
@@ -395,7 +438,7 @@ h2 i {
   border-radius: 3px;
   font-size: 13px;
   text-align: center;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s linear !important;
 }
 .execute-btn {
   display: flex;
@@ -417,49 +460,36 @@ h2 i {
   font-size: 1em;
   transition: 0.1s all linear;
 }
-
-.loading-bar {
-  width: 0;
-  height: 4px;
-  background-color: var(--button-color);
+/* .loading-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5em; 
+  height: 5em;
+  background-color:  var(--secondary-color);
+  padding: 20px;
+  border-radius: 50%; 
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 9999;
-  transition: width 0.3s ease-in-out;
+  animation: loading-animation 2s infinite linear; 
 }
 
 .loading {
   width: 100%;
 }
 
-.loading-bar {
-  width: 100%;
-  height: 5px; /* Adjust height as needed */
-  background-color: var(--primary-color); /* Adjust color as needed */
-  animation: loading-animation 2s linear ;
-}
-
-
-.loading-bar::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: inherit;
-}
-
 @keyframes loading-animation {
   0% {
-    width: 0%;
+    transform: rotate(0deg); 
   }
   100% {
-    width: 100%;
+    transform: rotate(360deg);
   }
-}
+} */
+
 
 
 .message-box {
@@ -480,9 +510,30 @@ h2 i {
   color: #1c3cc9;
 }
 
-
-
 /* Add this CSS to your existing styles or create a new CSS file */
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    background-color: rgba(1, 11, 68, 0); /* Start with transparent background */
+  }
+  25% {
+    opacity: 1;
+    background-color: rgba(1, 11, 68, 0.6); /* Change to desired background color */
+  }
+  75% {
+    opacity: 1;
+    background-color: rgba(1, 11, 68, 0.6); /* Maintain the same background color */
+  }
+  85%{
+    opacity: 0.5;
+    background-color: rgba(1, 11, 68, 0); /* End with transparent background */
+  }
+  100% {
+    opacity: 0;
+    background-color: rgba(1, 11, 68, 0); /* End with transparent background */
+  }
+}
 
 .full-page-loading {
   position: fixed;
@@ -490,26 +541,26 @@ h2 i {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(17, 17, 17, 0.5); /* Semi-transparent white background */
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999; /* Ensure the loading spinner appears above other content */
+  z-index: 99999;
+  animation: fadeInOut 5s ease infinite; /* Apply fade-in-out animation */
 }
 
 .full-page-loading .fa-spinner {
-  font-size: 3em; /* Adjust the size of the spinner */
-  color: #333; /* Adjust the color of the spinner */
+  font-size: 4em;
+  color: var(--body-background);
 }
+
 
 /* Adjust other styles as needed */
 
-.aside_confirm_section{
+.aside_confirm_section {
   width: 20%;
 }
 
-
-.checkbox-options-confirm{
+.checkbox-options-confirm {
   width: 84%;
   display: flex;
   justify-content: space-around;
@@ -517,25 +568,58 @@ h2 i {
   align-items: flex-start;
   font-size: 13px;
   padding: 2em 0em;
+}
+.checkbox-options-confirm label {
+  margin: 0.6em 0 0.6em 1em;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s linear;
+}
 
+.checkbox-options-confirm label:hover {
+  margin: 0.6em 0 0.6em 2em;
+  color: var(--button-color);
 }
-.checkbox-options-confirm label{
-  margin: .6em;
-}
+
 .checkbox-options-confirm input[type="checkbox"] {
+  appearance: none;
+  --webkit-appearance: none;
   margin-right: 5px;
-  width: 1em ;
+  width: 1em;
   height: 1em;
   background-color: var(--button-color);
   color: var(--primary-color);
   padding: 10px;
+  border-radius: 3px;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s linear;
+}
+
+.checkbox-options-confirm input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+}
+
+.checkbox-options-confirm input[type="checkbox"]:after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f00c";
+  color: var(--secondary-color);
+  font-size: 1em;
+  display: none;
+}
+
+.checkbox-options-confirm input[type="checkbox"]:checked:after {
+  display: block;
 }
 
 .execute-btn-confirm {
   margin: 2em 0;
 }
 
-.execute-btn-confirm button{
+.execute-btn-confirm button {
   width: 84%;
   padding: 10px 25px;
   margin: 0 10px 0 0;
@@ -549,16 +633,27 @@ h2 i {
   transition: 0.1s all linear;
 }
 
+.css-cyxlny-MuiPaper-root-MuiDialog-paper {
+  padding: 1em !important;
+  width: 40% !important;
+  
+}
+.css-1t4vnk2-MuiDialogContent-root, .css-knqc4i-MuiDialogActions-root {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
 
+.css-rnmm7m-MuiPaper-root-MuiDialog-paper {
+  width: 20% !important;
+  height: 30% !important;
+  text-align: center !important;
+  padding: 1em !important;
+}
 
-
-
-
-
-
-
-
-
+.css-1t1j96h-MuiPaper-root-MuiDialog-paper {
+  padding: 1em !important;
+}
 
 /* Media Query for Responsive Design */
 @media only screen and (max-width: 768px) {
@@ -570,7 +665,7 @@ h2 i {
     width: 50px;
     margin-left: 1em;
   }
-  .nav-icons{
+  .nav-icons {
     width: 4em;
   }
   .navbar-title {
@@ -598,5 +693,3 @@ h2 i {
     margin-top: 1em;
   }
 }
-
-

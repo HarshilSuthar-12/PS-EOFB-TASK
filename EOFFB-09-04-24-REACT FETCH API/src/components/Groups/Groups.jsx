@@ -222,10 +222,10 @@ function GroupsSection({ userData }) {
             }}
           >
             <span>
-              <i className="fas fa-info-circle"></i> Groups
+            <i class="fa-solid fa-user-group"></i> Groups
             </span>
             <span style={{ marginLeft: "10px" }}>
-              <FontAwesomeIcon
+              {/* <FontAwesomeIcon
                 icon={faChevronUp}
                 className="icon"
                 style={{
@@ -234,12 +234,12 @@ function GroupsSection({ userData }) {
                   transition: "transform 0.5s",
                   transform: isOpen ? "rotate(0deg)" : "rotate(180deg)",
                 }}
-              />
+              /> */}
             </span>
           </h2>
           <div
             style={{
-              transition: 'max-height 0.5s ease-in-out 0s',
+              transition: 'max-height 0.5s ease-in-out',
               overflow: "hidden",
               maxHeight: isOpen ? "1000px" : "0",
             }}
@@ -257,7 +257,7 @@ function GroupsSection({ userData }) {
                       <tr key={index}>
                         <td>{group.name || "N/A"}</td>
                         <td>{group.activeStatus ? "Active" : "Inactive"}</td>
-                        <td>{/* Your checkbox code */}</td>
+                        {/* <td>Your checkbox code</td> */}
                       </tr>
                     ))
                   ) : (

@@ -57,7 +57,7 @@ function Navbar({loginButton, isAuthenticated}) {
       <div className="nav_username">
         {/* <h3>{name}</h3> */}
         
-        {loginButton && !isAuthenticated ? loginButton : <h3>{email}</h3>}
+        {loginButton && !isAuthenticated ? loginButton : <h3><i class="fa-solid fa-user"></i>{email} </h3>}
 
       {/* <Logout /> */}
       </div>

@@ -29,7 +29,8 @@ async def fetch_employee_info(user_id: str):
                 "officeLocation": user_data.get("officeLocation"),
                 "country": user_data.get("country"),
                 "department": user_data.get("department"),
-                "accountStatus": "Active" if user_data.get("accountEnabled", False) else "Inactive",
+                # "principalName": user_data.get("principalName"),
+                "accountStatus": "Active" if user_data.get("accountEnabled", False) else "Disable",
                 # Default value for manager if not present
                 "manager": "manager not assigned"
             }

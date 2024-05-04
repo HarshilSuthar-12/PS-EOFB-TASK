@@ -111,10 +111,10 @@ function DomainSection({ userData }) {
             }}
           >
             <span>
-              <i className="fas fa-info-circle"></i> Domain
+            <i class="fa-solid fa-globe"></i> Domain
             </span>
             <span style={{ marginLeft: "10px" }}>
-            <FontAwesomeIcon
+            {/* <FontAwesomeIcon
                 icon={faChevronUp}
                 className="icon"
                 style={{
@@ -123,7 +123,7 @@ function DomainSection({ userData }) {
                   transition: "transform 0.5s",
                   transform: isOpen ? "rotate(0deg)" : "rotate(180deg)",
                 }}
-              />
+              /> */}
             </span>
           </h2>
           <div
