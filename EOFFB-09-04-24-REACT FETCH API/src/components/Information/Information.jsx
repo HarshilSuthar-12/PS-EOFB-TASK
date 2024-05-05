@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import "../css/Globals.css";
-
-
+import { colors } from "@mui/material";
 
 // Demo data
 const demoUserData = {
@@ -39,8 +38,6 @@ function InformationSection({ userData }) {
   const toggleSection = () => {
     setIsOpen(!isOpen);
   };
-
-
 
   return (
     <div className="con">

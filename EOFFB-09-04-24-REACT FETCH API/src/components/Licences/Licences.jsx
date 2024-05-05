@@ -111,7 +111,7 @@ function LicensesSection({ userData }) {
                     ))
                   ) : (
                     <tr>
-                      <td colSpan="3">No licenses assigned</td>
+                      <td colSpan="3">No license assignments found.</td>
                     </tr>
                   )}
                 </tbody>

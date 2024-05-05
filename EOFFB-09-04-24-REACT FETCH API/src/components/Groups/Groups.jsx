@@ -97,7 +97,7 @@ function GroupsSection({ userData }) {
                     ))
                   ) : (
                     <tr>
-                      <td colSpan="3">No groups assigned</td>
+                      <td colSpan="3">Not a member of any groups</td>
                     </tr>
                   )}
                 </tbody>
