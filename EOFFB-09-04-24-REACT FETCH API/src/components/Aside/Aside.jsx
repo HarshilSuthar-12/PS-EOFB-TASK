@@ -160,38 +160,7 @@ function Aside({ onIdSubmit }) {
         </form>
         {errorMessageVisible && error && (
           <div className="error-message">{error}</div>
-        )}
-      {/* <Dialog 
-      open={showUserNotFoundError}
-      onClose={handleCloseUserNotFoundError}>
-      <DialogTitle
-            sx={{
-              fontFamily: "Poppins",
-              fontWeight: "bold",
-              textAlign: "center",
-            }}
-          >
-            User not Found
-          </DialogTitle>
-          <DialogContent dividers>
-            <div style={{ textAlign: "center", margin: '20px', color: 'red' }}>
-              <h3>User's account is disabled</h3>
-            </div>
-          </DialogContent>
-          <DialogActions style={{ justifyContent: "center" }}></DialogActions>
-            <Button
-              onClick={onClose}
-              variant="contained"
-              color="primary"
-              sx={{
-                fontFamily: "poppins",
-                fontSize: "1em",
-                padding: "12px 35px",
-              }}
-            >
-              OK
-            </Button>
-      </Dialog> */}
+        )}  
       </aside>
     </>
   );

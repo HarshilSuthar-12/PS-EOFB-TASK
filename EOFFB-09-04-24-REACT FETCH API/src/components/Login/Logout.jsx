@@ -1,20 +1,17 @@
 import React from 'react';
-import { createBrowserHistory } from 'history';
+import { useNavigate } from 'react-router-dom'; // Import useHistory hook for navigation
 
-
-const Logout = () => {
-//   const history = useHistory();
-const history = createBrowserHistory();
+function Logout({ logout }) {
+  const history = useNavigate();
 
   const handleLogout = () => {
-    history.push('/');
+    logout(); // Call the logout function passed as prop
+    history.push('/login'); // Redirect to the login page
   };
 
   return (
-    <div className='execute-btn'>
-    <button onClick={handleLogout}> Logout</button>
-    </div>
+    <button onClick={handleLogout}>Logout</button>
   );
-};
+}
 
 export default Logout;
