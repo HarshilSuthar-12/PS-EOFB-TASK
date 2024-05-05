@@ -6,7 +6,7 @@ GRAPH_API_BASE_URL = "https://graph.microsoft.com/v1.0"
 async def fetch_employee_info(user_id: str):
     token = get_token()
     headers = {"Authorization": f"Bearer {token}"}
-    select_fields = "id,displayName,mail,jobTitle,createdDateTime,employeeId,employeeType,city,officeLocation,country,department,accountEnabled"
+    select_fields = "id,displayName,mail,jobTitle,createdDateTime,employeeId,employeeType,city,officeLocation,country,department,accountEnabled,userPrincipalName"
     try:
         async with httpx.AsyncClient() as client:
             user_info_response = await client.get(
@@ -29,8 +29,8 @@ async def fetch_employee_info(user_id: str):
                 "officeLocation": user_data.get("officeLocation"),
                 "country": user_data.get("country"),
                 "department": user_data.get("department"),
-                # "principalName": user_data.get("principalName"),
                 "accountStatus": "Active" if user_data.get("accountEnabled", False) else "Disable",
+                "userPrincipalName":user_data.get("userPrincipalName"),
                 # Default value for manager if not present
                 "manager": "manager not assigned"
             }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import "../css/Globals.css";
+import {Dialog,DialogTitle,DialogContent,DialogActions,Button,CircularProgress,} from "@mui/material";
 
 function Aside({ onIdSubmit }) {
   const [inputValue, setInputValue] = useState("");
@@ -10,6 +11,7 @@ function Aside({ onIdSubmit }) {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [errorMessageVisible, setErrorMessageVisible] = useState(false);
+  // const [showUserNotFoundError, setShowUserNotFoundError] = useState(false);
   const [domains, setDomains] = useState({
     "QC.Local": true,
     "3Eco.com": true,
@@ -37,13 +39,22 @@ function Aside({ onIdSubmit }) {
           setPlaceholderText("Enter Email ID");
         });
       } catch (error) {
-        setError(error.message || "Error submitting data");
+        // if (response.status === 500) {
+        //   setError("User Not Found");
+        //   setShowUserNotFoundError(true);
+        //   setLoading(false);
+        // }
+        // setError(error.message || "Error submitting data");
+        setError("User Not Found");
         setLoading(false);
         setErrorMessageVisible(true);
       }
     }
   };
 
+  // const handleCloseUserNotFoundError = () => {
+  //   setShowUserNotFoundError(false);
+  // };
   const validateID = (id) => {
     if (id.trim() === "") {
       setValidationMessage("Please enter an ID");
@@ -150,9 +161,42 @@ function Aside({ onIdSubmit }) {
         {errorMessageVisible && error && (
           <div className="error-message">{error}</div>
         )}
+      {/* <Dialog 
+      open={showUserNotFoundError}
+      onClose={handleCloseUserNotFoundError}>
+      <DialogTitle
+            sx={{
+              fontFamily: "Poppins",
+              fontWeight: "bold",
+              textAlign: "center",
+            }}
+          >
+            User not Found
+          </DialogTitle>
+          <DialogContent dividers>
+            <div style={{ textAlign: "center", margin: '20px', color: 'red' }}>
+              <h3>User's account is disabled</h3>
+            </div>
+          </DialogContent>
+          <DialogActions style={{ justifyContent: "center" }}></DialogActions>
+            <Button
+              onClick={onClose}
+              variant="contained"
+              color="primary"
+              sx={{
+                fontFamily: "poppins",
+                fontSize: "1em",
+                padding: "12px 35px",
+              }}
+            >
+              OK
+            </Button>
+      </Dialog> */}
       </aside>
     </>
   );
 }
 
 export default Aside;
+
+
