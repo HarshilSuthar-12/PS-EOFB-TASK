@@ -1,9 +1,9 @@
-
-
 import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import "../css/Globals.css";
+
+
 
 // Demo data
 const demoUserData = {
@@ -39,6 +39,8 @@ function InformationSection({ userData }) {
   const toggleSection = () => {
     setIsOpen(!isOpen);
   };
+
+
 
   return (
     <div className="con">
@@ -116,7 +118,8 @@ function InformationSection({ userData }) {
                 </tr>
                 <tr>
                   <th>Account Status</th>
-                  <td>{userDetails.accountStatus || "N/A"}</td>
+                  <td >
+                    {userDetails.accountStatus || "N/A"}{" "}</td>
                 </tr>
                 <tr>
                   <th>Department</th>
