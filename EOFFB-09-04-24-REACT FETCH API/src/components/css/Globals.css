@@ -15,6 +15,7 @@
   --input-field-text-color: none;
   --button-color: #d17c24;
   --title-color: #0f4876;
+  --transition_effect: all 0.2s linear;
 }
 
 /* Dark Mode */
@@ -54,7 +55,7 @@ html::-webkit-scrollbar-thumb {
 
 * {
   font-family: var(--font-family);
-  transition: all 0.2s linear;
+  transition: var(--transition_effect);
   text-decoration: none;
   list-style: none;
   margin: 0;
@@ -156,7 +157,7 @@ img {
   background-color: var(--aside-background);
   box-shadow: var(--box-shadow);
   margin-top: 20px;
-  transition: 0.5s all ease-in-out;
+  transition: var(--transition_effect);
   border-radius: 5px;
 }
 
@@ -225,7 +226,7 @@ img {
   cursor: pointer;
   font-weight: 500;
   font-size: 1em;
-  transition: all 0.2s linear;
+  transition: var(--transition_effect);
   margin-top: 0;
 }
 
@@ -275,7 +276,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.2s linear;
+  transition: var(--transition_effect);
 }
 
 .checkbox-options input[type="checkbox"]:checked {
@@ -327,7 +328,7 @@ img {
   padding: 20px;
   box-shadow: var(--box-shadow);
   overflow: hidden;
-  transition: transform 0.4s ease-in-out;
+  transition: var(--transition_effect);
   border-radius: 5px;
 }
 
@@ -360,7 +361,7 @@ h3 i {
   margin-top: 20px;
   color: var(--input-field-text-color);
   font-size: 13px;
-  transition: transform 0.4s ease-in-out;
+  transition: var(--transition_effect);
 }
 
 #information-table td,
@@ -384,24 +385,24 @@ h3 i {
   background-color: var(--table-th-color);
   color: var(--primary-color);
   border-radius: 2px;
-  transition: all 0.2s linear;
+  transition: var(--transition_effect);
 }
 
-#information-table th:hover,
-tr:hover,
-#groups-table th:hover,
-tr:hover,
-#licenses-table th:hover,
-tr:hover,
-#domain-table th:hover,
-tr:hover {
+#information-table 
+th:hover, tr:hover,
+#groups-table 
+th:hover, tr:hover,
+#licenses-table 
+th:hover, tr:hover,
+#domain-table 
+th:hover, tr:hover {
   background-color: var(--primary-color);
   color: var(--secondary-color);
 }
 
 .section-content {
   display: table;
-  transition: all 0.3s ease-in-out;
+  transition: var(--transition_effect);
 }
 
 .section-content.show {
@@ -420,7 +421,7 @@ tr:hover {
   border-radius: 3px;
   font-size: 13px;
   text-align: center;
-  transition: all 0.3s linear !important;
+  transition: var(--transition_effect);
 }
 .execute-btn {
   display: flex;
@@ -440,13 +441,13 @@ tr:hover {
   cursor: pointer;
   font-weight: 500;
   font-size: 1em;
-  transition: 0.1s all linear;
+  transition: var(--transition_effect);
 }
 
 
 
 .message-box {
-  transition: 0.3s all ease-in-out;
+  transition: var(--transition_effect);
   display: none;
   width: 200px;
   padding: 10px;
@@ -471,14 +472,22 @@ tr:hover {
     background-color: rgba(1, 11, 68, 0); /* Start with transparent background */
   }
   25% {
-    opacity: 1;
+    opacity: 0.5;
     background-color: rgba(1, 11, 68, 0.6); /* Change to desired background color */
+  }
+  50% {
+    opacity: 0.8;
+    background-color: rgba(1, 11, 68, 0.6); /* Maintain the same background color */
   }
   75% {
     opacity: 1;
     background-color: rgba(1, 11, 68, 0.6); /* Maintain the same background color */
   }
   85%{
+    opacity: 0.8;
+    background-color: rgba(1, 11, 68, 0); /* End with transparent background */
+  }
+  95% {
     opacity: 0.5;
     background-color: rgba(1, 11, 68, 0); /* End with transparent background */
   }
@@ -528,7 +537,7 @@ tr:hover {
   margin: 0.6em 0 0.6em 1em;
   display: flex;
   align-items: center;
-  transition: all 0.2s linear;
+  transition: var(--transition_effect);
 }
 
 .checkbox-options-confirm label:hover {
@@ -550,7 +559,7 @@ tr:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.2s linear;
+  transition: var(--transition_effect);
 }
 
 .checkbox-options-confirm input[type="checkbox"]:checked {
@@ -585,7 +594,7 @@ tr:hover {
   cursor: pointer;
   font-weight: 500;
   font-size: 1em;
-  transition: 0.1s all linear;
+  transition: var(--transition_effect);
 }
 
 .css-cyxlny-MuiPaper-root-MuiDialog-paper {
@@ -609,6 +618,13 @@ tr:hover {
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
   padding: 1em !important;
 }
+
+
+/* 
+.bg_active{
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+} */
 
 /* Media Query for Responsive Design */
 @media only screen and (max-width: 768px) {

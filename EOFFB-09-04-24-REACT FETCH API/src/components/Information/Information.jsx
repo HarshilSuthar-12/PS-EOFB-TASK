@@ -113,8 +113,8 @@ function InformationSection({ userData }) {
                   <th>Created Date</th>
                   <td>{userDetails.creationDate || "N/A"}</td>
                 </tr>
-                <tr>
-                  <th>Account Status</th>
+                <tr className="bg_active">
+                  <th >Account Status</th>
                   <td >
                     {userDetails.accountStatus || "N/A"}{" "}</td>
                 </tr>
