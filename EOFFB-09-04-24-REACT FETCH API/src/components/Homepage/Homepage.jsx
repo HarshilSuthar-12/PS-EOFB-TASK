@@ -87,7 +87,7 @@ import DomainSection from "../Domain/Domain";
 
 const Homepage = () => {
   const [userData, setUserData] = useState(null);
-  const [showUserNotFoundError, setShowUserNotFoundError] = useState(false);
+  // const [showUserNotFoundError, setShowUserNotFoundError] = useState(false);
 
   const fetchUserData = (userId, callBack) => {
     fetch(`http://127.0.0.1:8000/employee_info/${userId}`, {

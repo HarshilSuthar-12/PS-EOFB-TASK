@@ -17,8 +17,8 @@ const ConfirmationDialog = ({open,onClose,onConfirm,executionMessage,userData,})
       // Show disabled account message pop-up
       setOpenDisabledAccountDialog(true);
       return; // Prevent further actions if account is disabled
+      // setLoading(true); // Set loading to true when confirming
     }
-
     setLoading(true); // Set loading to true when confirming
     try {
       await onConfirm(); // Call the onConfirm function passed from parent
@@ -39,7 +39,7 @@ const ConfirmationDialog = ({open,onClose,onConfirm,executionMessage,userData,})
 
   return (
     <>
-      {loading && (
+     {loading && (
         <div className="full-page-loading">
           <FontAwesomeIcon icon={faSpinner} spin />
         </div>

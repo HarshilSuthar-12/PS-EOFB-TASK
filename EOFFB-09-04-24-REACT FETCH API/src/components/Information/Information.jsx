@@ -39,6 +39,36 @@ function InformationSection({ userData }) {
     setIsOpen(!isOpen);
   };
 
+  const formatDate = (dateString) => {
+    if (!dateString) return "N/A";
+
+    // Parse the date string
+    const date = new Date(dateString);
+
+    // Months array to map month index to month name
+    const months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+
+    // Format the date as dd/mon/yyyy
+    const day = date.getDate().toString().padStart(2, "0");
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+
+    return `${day}-${month}-${year}`;
+  };
+
   return (
     <div className="con">
       {userDetails && (
@@ -111,12 +141,11 @@ function InformationSection({ userData }) {
                 </tr>
                 <tr>
                   <th>Created Date</th>
-                  <td>{userDetails.creationDate || "N/A"}</td>
+                  <td>{formatDate(userDetails.creationDate) || "N/A"}</td>
                 </tr>
                 <tr className="bg_active">
-                  <th >Account Status</th>
-                  <td >
-                    {userDetails.accountStatus || "N/A"}{" "}</td>
+                  <th>Account Status</th>
+                  <td>{userDetails.accountStatus || "N/A"} </td>
                 </tr>
                 <tr>
                   <th>Department</th>
