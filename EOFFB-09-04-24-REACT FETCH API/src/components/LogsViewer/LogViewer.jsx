@@ -757,11 +757,7 @@ const LogViewer = ({ userDetails }) => {
     };
 
     const demoLogs = [
-        "2024-05-07 14:21:24,148 - msgraph-backend - DEBUG - Successfully removed testuser@productsquads.co from group ProductSquads Technolabs LLP",
-        "2024-05-07 14:21:24,148 - msgraph-backend - DEBUG - Successfully removed testuser@productsquads.co from group ProductSquads Technolabs LLP",
-        "2024-05-07 14:21:24,148 - msgraph-backend - DEBUG - Successfully removed testuser@productsquads.co from group ProductSquads Technolabs LLP",
-        "2024-05-07 14:21:24,148 - msgraph-backend - DEBUG - Successfully removed testuser@productsquads.co from group ProductSquads Technolabs LLP",
-        "2024-05-07 14:21:24,148 - msgraph-backend - DEBUG - Successfully removed testuser@productsquads.co from group ProductSquads Technolabs LLP",
+        "2024-05-07 14:21:24,148 - msgraph-backend - DEBUG - Successfully removed testuser@productsquads.co from group ProductSquads Technolabs LLP"
         // Add more demo log entries as needed
     ];
 

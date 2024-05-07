@@ -2,13 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ConfirmationDialog from "../Confirm/ConfirmationDialog"; // Import the new ConfirmationDialog component
 import FinalConfirmationDialog from "../DialogBox/DialogBox"; // Import the FinalConfirmationDialog component
-import {
-  Button,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-} from "@mui/material"; // Import Dialog components from Material-UI
+
 
 function ExecutionComponent({ fetchUserId, userData }) {
   const [loading, setLoading] = useState(false);
@@ -17,7 +11,6 @@ function ExecutionComponent({ fetchUserId, userData }) {
   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
   const [showFinalConfirmationDialog, setShowFinalConfirmationDialog] =
     useState(false); // State to control the visibility of FinalConfirmationDialog
-  const [errorDialogOpen, setErrorDialogOpen] = useState(false); // State to control the visibility of error dialog
 
   const [userDetails, setUserDetails] = useState(userData);
   useEffect(() => {
@@ -45,14 +38,6 @@ function ExecutionComponent({ fetchUserId, userData }) {
 
   const executeAction = () => {
     const userId = fetchUserId();
-
-    if (userId === undefined) {
-      setExecutionMessage(
-        "User ID is undefined. Offboarding cannot be confirmed."
-      );
-      setErrorDialogOpen(true);
-      return;
-    }
 
     setShowConfirmationDialog(true);
   };
@@ -111,44 +96,10 @@ function ExecutionComponent({ fetchUserId, userData }) {
     setExecutionMessage("Offboarding process cancelled");
   };
 
-  const handleCloseErrorDialog = () => {
-    setErrorDialogOpen(false);
-    setExecutionMessage("");
-  };
+
 
   return (
     <>
-      {/* Error dialog */}
-      <Dialog open={errorDialogOpen} onClose={handleCloseErrorDialog}>
-        <DialogTitle
-          sx={{
-            fontFamily: "Poppins",
-            fontWeight: "bold",
-            textAlign: "center",
-          }}
-        >
-          Error!
-        </DialogTitle>
-        <DialogContent dividers>
-          <div
-            style={{
-              fontFamily: "Poppins",
-              fontWeight: "bold",
-              textAlign: "center",
-            }}
-          >
-            <h3>Email ID is not enterd. Enter the Email ID first!</h3>
-          </div>
-        </DialogContent>
-        <DialogActions style={{ justifyContent: "center" }}></DialogActions>
-
-        <DialogActions>
-          <Button onClick={handleCloseErrorDialog}  sx={{ fontFamily: "poppins", fontSize: "1em", }}>
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
-
       {loading && <div className="full-page-loading" id="loadingBar"></div>}
       {executionMessage && (
         <div className="message-box">{executionMessage}</div>
