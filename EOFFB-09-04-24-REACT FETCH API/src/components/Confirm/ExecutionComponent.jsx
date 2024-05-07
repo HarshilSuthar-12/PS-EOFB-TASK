@@ -155,7 +155,7 @@ function ExecutionComponent({ fetchUserId, userData }) {
       )}
       <div className="aside">
         <h2>
-          <i className="fas fa-lock"></i> Confirmation
+          <i className="fas fa-lock"></i> Tasks
         </h2>
         <div className="checkbox-options-confirm">
           <label>

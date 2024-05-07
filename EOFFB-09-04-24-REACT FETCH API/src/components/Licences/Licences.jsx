@@ -90,10 +90,10 @@ function LicensesSection({ userData }) {
             style={{
               transition: "max-height 0.5s ease-in-out",
               overflow: "hidden",
-              maxHeight: isOpen ? "1000px" : "0",
+
             }}
           >
-            {isOpen && (
+
               <table id="information-table" className="section-content">
                 <tbody>
                   <tr>
@@ -116,7 +116,6 @@ function LicensesSection({ userData }) {
                   )}
                 </tbody>
               </table>
-            )}
           </div>
         </>
       )}

@@ -1,4 +1,3 @@
-
 // import React, { useState, useEffect } from "react";
 // import Navbar from "../Navbar/Navbar";
 // import Aside from "../Aside/Aside";
@@ -73,6 +72,231 @@
 
 // export default Homepage;
 
+// import React, { useState } from "react";
+// import Aside from "../Aside/Aside";
+// import ExecutionComponent from "../Confirm/ExecutionComponent";
+// import InformationSection from "../Information/Information";
+// import GroupsSection from "../Groups/Groups";
+// import LicensesSection from "../Licences/Licences";
+// import DomainSection from "../Domain/Domain";
+
+// const Homepage = () => {
+//   const [userData, setUserData] = useState(null);
+
+//   const fetchUserData = (userId, callBack) => {
+//     fetch(`http://127.0.0.1:8000/employee_info/${userId}`, {
+//       method: "GET",
+//       headers: {
+//         "Access-Control-Allow-Origin": "*"
+//       },
+//     })
+//       .then((response) => {
+//         if (!response.ok) {
+//           // setShowUserNotFoundError(true);
+//           throw new Error("Network response was not ok");
+//         }
+//         return response.json();
+//       })
+//       .then((data) => {
+//         setUserData(data);
+//         callBack(data);
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching data:", error);
+
+//       });
+//   };
+
+//   const fetchUserId = () => {
+//     return userData?.userPrincipalName;
+//   };
+
+//   return (
+//     <div className="container-Homepage">
+//       <div className="aside_confirm_section">
+//         <Aside onIdSubmit={fetchUserData} />
+//         <ExecutionComponent fetchUserId={fetchUserId} fetchUserData={fetchUserData} userData={userData} />
+//       </div>
+//       <div className="information-container">
+//         <InformationSection userData={userData} />
+//         <div className="inner_scetion">
+//           <GroupsSection userData={userData} />
+//           <LicensesSection userData={userData} />
+//           {/* <DomainSection userData={userData} /> */}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Homepage;
+
+
+
+
+// import React, { useState } from "react";
+// import Aside from "../Aside/Aside";
+// import ExecutionComponent from "../Confirm/ExecutionComponent";
+// import InformationSection from "../Information/Information";
+// import GroupsSection from "../Groups/Groups";
+// import LicensesSection from "../Licences/Licences";
+// import DomainSection from "../Domain/Domain";
+// import LogViewer from "../LogsViewer/LogViewer";
+
+// const Homepage = () => {
+//   const [userData, setUserData] = useState(null);
+//   const [isDataFetched, setIsDataFetched] = useState(false);
+
+//   const fetchUserData = async (userId, callBack) => {
+//     try {
+//       const response = await fetch(
+//         `http://127.0.0.1:8000/employee_info/${userId}`,
+//         {
+//           method: "GET",
+//           headers: {
+//             "Access-Control-Allow-Origin": "*",
+//           },
+//         }
+//       )
+//         .then((response) => {
+//           if (!response.ok) {
+  
+//             throw new Error("Network response was not ok");
+//           }
+//           return response.json();
+//         })
+//         .then((data) => {
+//           setIsDataFetched(true);
+//           setUserData(data);
+//           callBack(data);
+//         });
+//     } catch (error) {
+//       console.error("Error fetching data:", error);
+//       // Handle error
+//     }
+//   };
+//   const handleIdSubmit = async (id) => {
+//     setIsDataFetched(false); 
+//     await fetchUserData(id);
+//   };
+
+//   const fetchUserId =  () => {
+//     return userData?.userPrincipalName; 
+//   };
+
+//   return (
+//     <div className="container-Homepage">
+//       <div className="aside_confirm_section">
+//         <Aside
+//           onIdSubmit={handleIdSubmit}
+//           setIsDataFetched={setIsDataFetched}
+//         />
+//         {isDataFetched && (
+//           <ExecutionComponent
+//             fetchUserId={fetchUserId}
+//             fetchUserData={fetchUserData}
+//             userData={userData}
+//           />
+//         )}
+//       </div>
+//       <div className="information-container">
+//         <InformationSection userData={userData} />
+//         <div className="inner_scetion">
+//           <GroupsSection userData={userData} />
+//           <LicensesSection userData={userData} />
+//           {/* <DomainSection userData={userData} /> */}
+//           <LogViewer />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Homepage;
+
+
+
+// import React, { useState } from "react";
+// import Aside from "../Aside/Aside";
+// import ExecutionComponent from "../Confirm/ExecutionComponent";
+// import InformationSection from "../Information/Information";
+// import GroupsSection from "../Groups/Groups";
+// import LicensesSection from "../Licences/Licences";
+// import DomainSection from "../Domain/Domain";
+// import LogViewer from "../LogsViewer/LogViewer";
+// import FinalConfirmationDialog from "../DialogBox/DialogBox"; // Import your FinalConfirmationDialog component
+
+// const Homepage = () => {
+//   const [userData, setUserData] = useState(null);
+//   const [isDataFetched, setIsDataFetched] = useState(false);
+//   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
+
+//   const fetchUserData = async (userId, callBack) => {
+//     try {
+//       const response = await fetch(
+//         `http://127.0.0.1:8000/employee_info/${userId}`,
+//         {
+//           method: "GET",
+//           headers: {
+//             "Access-Control-Allow-Origin": "*",
+//           },
+//         }
+//       );
+//       if (!response.ok) {
+//         throw new Error("Network response was not ok");
+//       }
+//       const data = await response.json();
+//       setIsDataFetched(true);
+//       setUserData(data);
+//       callBack(data);
+//     } catch (error) {
+//       console.error("Error fetching data:", error);
+//       // Handle error
+//     }
+//   };
+
+//   const handleIdSubmit = async (id) => {
+//     setIsDataFetched(false);
+//     await fetchUserData(id);
+//   };
+
+//   const fetchUserId = () => {
+//     return userData?.userPrincipalName;
+//   };
+
+//   return (
+//     <div className="container-Homepage">
+//       <div className="aside_confirm_section">
+//         <Aside onIdSubmit={handleIdSubmit} setIsDataFetched={setIsDataFetched} />
+//         {isDataFetched && (
+//           <ExecutionComponent
+//             fetchUserId={fetchUserId}
+//             fetchUserData={fetchUserData}
+//             userData={userData}
+//             setIsConfirmationOpen={setIsConfirmationOpen}
+//           />
+//         )}
+//       </div>
+//       <div className="information-container">
+//         <InformationSection userData={userData} />
+//         <div className="inner_scetion">
+//           <GroupsSection userData={userData} />
+//           <LicensesSection userData={userData} />
+//           {/* <DomainSection userData={userData} /> */}
+//           {isDataFetched && !isConfirmationOpen && <LogViewer />}
+//         </div>
+//       </div>
+//       <FinalConfirmationDialog
+//         open={isConfirmationOpen}
+//         onClose={() => setIsConfirmationOpen(false)}
+//       />
+//     </div>
+//   );
+// };
+
+// export default Homepage;
+
+
 
 
 import React, { useState } from "react";
@@ -82,93 +306,78 @@ import InformationSection from "../Information/Information";
 import GroupsSection from "../Groups/Groups";
 import LicensesSection from "../Licences/Licences";
 import DomainSection from "../Domain/Domain";
-// import {Dialog,DialogTitle,DialogContent,DialogActions,Button,CircularProgress,} from "@mui/material";
-// import zIndex from "@mui/material/styles/zIndex";
+import LogViewer from "../LogsViewer/LogViewer";
+import FinalConfirmationDialog from "../DialogBox/DialogBox"; // Import your FinalConfirmationDialog component
 
 const Homepage = () => {
   const [userData, setUserData] = useState(null);
-  // const [showUserNotFoundError, setShowUserNotFoundError] = useState(false);
+  const [isDataFetched, setIsDataFetched] = useState(false);
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
 
-  const fetchUserData = (userId, callBack) => {
-    fetch(`http://127.0.0.1:8000/employee_info/${userId}`, {
-      method: "GET",
-      headers: {
-        "Access-Control-Allow-Origin": "*"
-      },
-    })
-      .then((response) => {
-        if (!response.ok) {
-          // setShowUserNotFoundError(true);
-          throw new Error("Network response was not ok");
+  const fetchUserData = async (userId, callBack) => {
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:8000/employee_info/${userId}`,
+        {
+          method: "GET",
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
         }
-        return response.json();
-      })
-      .then((data) => {
-        setUserData(data);
-        callBack(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-        // if (error.response && error.response.status === 500) {
-          // setShowUserNotFoundError(true);
-        // }
-      });
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setIsDataFetched(true);
+      setUserData(data);
+      callBack(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      // Handle error
+    }
+  };
+
+  const handleIdSubmit = async (id) => {
+    setIsDataFetched(false);
+    await fetchUserData(id);
   };
 
   const fetchUserId = () => {
-    return userData?.userPrincipalName; // Make sure to handle null or undefined cases
+    return userData?.userPrincipalName;
   };
-
-  // const handleCloseUserNotFoundError = () => {
-  //   setShowUserNotFoundError(false);
-  // };
 
   return (
     <div className="container-Homepage">
       <div className="aside_confirm_section">
-        <Aside onIdSubmit={fetchUserData} />
-        <ExecutionComponent fetchUserId={fetchUserId} fetchUserData={fetchUserData} userData={userData} />
+        <Aside onIdSubmit={handleIdSubmit} setIsDataFetched={setIsDataFetched} />
+        {isDataFetched && (
+          <ExecutionComponent
+            fetchUserId={fetchUserId}
+            fetchUserData={fetchUserData}
+            userData={userData}
+            setIsConfirmationOpen={setIsConfirmationOpen}
+          />
+        )}
       </div>
       <div className="information-container">
-        <InformationSection userData={userData} />
-        <div className="inner_scetion">
-          <GroupsSection userData={userData} />
-          <LicensesSection userData={userData} />
-          <DomainSection userData={userData} />
-        </div>
-      </div>
-      {/* <Dialog 
-      open={showUserNotFoundError}
-      onClose={handleCloseUserNotFoundError}>
-      <DialogTitle
-            sx={{
-              fontFamily: "Poppins",
-              fontWeight: "bold",
-              textAlign: "center",
-            }}
-          >
-            User not Found
-          </DialogTitle>
-          <DialogContent dividers>
-            <div style={{ textAlign: "center", margin: '20px', color: 'red' }}>
-              <h3>User's account is disabled</h3>
+        {isDataFetched && (
+          <>
+            <InformationSection userData={userData} />
+            <div className="inner_scetion">
+              <GroupsSection userData={userData} />
+              <LicensesSection userData={userData} />
+              {/* <DomainSection userData={userData} /> */}
+            {!isConfirmationOpen && <LogViewer />} 
             </div>
-          </DialogContent>
-          <DialogActions style={{ justifyContent: "center" }}></DialogActions>
-            <Button
-              onClick={onClose}
-              variant="contained"
-              color="primary"
-              sx={{
-                fontFamily: "poppins",
-                fontSize: "1em",
-                padding: "12px 35px",
-              }}
-            >
-              OK
-            </Button>
-      </Dialog> */}
+          </>
+        )}
+      <FinalConfirmationDialog
+        open={isConfirmationOpen}
+        onClose={() => setIsConfirmationOpen(false)}
+        />
     </div>
+        </div>
   );
 };
 

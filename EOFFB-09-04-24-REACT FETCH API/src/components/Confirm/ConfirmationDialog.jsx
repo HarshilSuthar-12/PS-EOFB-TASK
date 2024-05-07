@@ -31,7 +31,7 @@ const ConfirmationDialog = ({open,onClose,onConfirm,executionMessage,userData,})
   // Function to get the message based on account status
   const getStatusMessage = () => {
     if (userDetails?.accountStatus === "Disable") {
-      return " Disabled";
+      return "Disabled";
     }
     // Add more conditions for other account status values if needed
     return "Active"; // Default message if no specific condition matches
@@ -44,7 +44,7 @@ const ConfirmationDialog = ({open,onClose,onConfirm,executionMessage,userData,})
           <FontAwesomeIcon icon={faSpinner} spin />
         </div>
       )}
-      <Dialog open={open && userDetails?.accountStatus !== "Disable"} onClose={onClose} fullWidth maxWidth="lg">
+      <Dialog open={open && userDetails?.accountStatus !== "Disabled"} onClose={onClose} fullWidth maxWidth="lg">
 
           <DialogTitle
             sx={{
@@ -111,7 +111,7 @@ const ConfirmationDialog = ({open,onClose,onConfirm,executionMessage,userData,})
           </DialogActions>
       </Dialog>
 
-      <Dialog open={open && userDetails?.accountStatus === "Disable"} onClose={onClose} fullWidth maxWidth="lg">
+      <Dialog open={open && userDetails?.accountStatus === "Disabled"} onClose={onClose} fullWidth maxWidth="lg">
 
           <DialogTitle
             sx={{

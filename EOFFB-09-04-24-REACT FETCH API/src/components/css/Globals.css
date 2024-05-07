@@ -109,7 +109,6 @@ img {
   align-items: center;
 }
 
-
 .nav_username h3 {
   background-color: var(--primary-color);
   padding: 0.7em 1em;
@@ -192,12 +191,10 @@ img {
   border-radius: 50px;
 }
 
-.disabled-button{
+.disabled-button {
   background-color: #ccc !important;
   cursor: not-allowed !important;
 }
-
-
 
 .input-wrapper {
   position: relative;
@@ -388,14 +385,14 @@ h3 i {
   transition: var(--transition_effect);
 }
 
-#information-table 
-th:hover, tr:hover,
-#groups-table 
-th:hover, tr:hover,
-#licenses-table 
-th:hover, tr:hover,
-#domain-table 
-th:hover, tr:hover {
+#information-table th:hover,
+tr:hover,
+#groups-table th:hover,
+tr:hover,
+#licenses-table th:hover,
+tr:hover,
+#domain-table th:hover,
+tr:hover {
   background-color: var(--primary-color);
   color: var(--secondary-color);
 }
@@ -444,8 +441,6 @@ th:hover, tr:hover {
   transition: var(--transition_effect);
 }
 
-
-
 .message-box {
   transition: var(--transition_effect);
   display: none;
@@ -469,21 +464,41 @@ th:hover, tr:hover {
 @keyframes fadeInOut {
   0% {
     opacity: 0;
-    background-color: rgba(1, 11, 68, 0); /* Start with transparent background */
+    background-color: rgba(
+      1,
+      11,
+      68,
+      0
+    ); /* Start with transparent background */
   }
   25% {
     opacity: 0.5;
-    background-color: rgba(1, 11, 68, 0.6); /* Change to desired background color */
+    background-color: rgba(
+      1,
+      11,
+      68,
+      0.6
+    ); /* Change to desired background color */
   }
   50% {
     opacity: 0.8;
-    background-color: rgba(1, 11, 68, 0.6); /* Maintain the same background color */
+    background-color: rgba(
+      1,
+      11,
+      68,
+      0.6
+    ); /* Maintain the same background color */
   }
   75% {
     opacity: 1;
-    background-color: rgba(1, 11, 68, 0.6); /* Maintain the same background color */
+    background-color: rgba(
+      1,
+      11,
+      68,
+      0.6
+    ); /* Maintain the same background color */
   }
-  85%{
+  85% {
     opacity: 0.8;
     background-color: rgba(1, 11, 68, 0); /* End with transparent background */
   }
@@ -515,14 +530,11 @@ th:hover, tr:hover {
   color: var(--body-background);
 }
 
-
 /* Adjust other styles as needed */
 
 .aside_confirm_section {
   width: 20%;
 }
-
-
 
 .checkbox-options-confirm {
   width: 84%;
@@ -600,9 +612,9 @@ th:hover, tr:hover {
 .css-cyxlny-MuiPaper-root-MuiDialog-paper {
   padding: 1em !important;
   width: 40% !important;
-  
 }
-.css-1t4vnk2-MuiDialogContent-root, .css-knqc4i-MuiDialogActions-root {
+.css-1t4vnk2-MuiDialogContent-root,
+.css-knqc4i-MuiDialogActions-root {
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
@@ -619,6 +631,23 @@ th:hover, tr:hover {
   padding: 1em !important;
 }
 
+.MuiDialogTitle-root + .css-ypiqx9-MuiDialogContent-root {
+  margin: 2em 0 !important;
+  padding: 2em !important;
+}
+
+.css-tlc64q-MuiPaper-root-MuiDialog-paper {
+  padding: 1em !important;
+}
+.log-btn{
+  display: flex !important;
+}
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root,
+.css-1l9sosn-MuiButtonBase-root-MuiButton-root {
+  margin-top: 20px !important;
+  /* margin-right: 10px !important; */
+  width: 100% !important;
+}
 
 /* 
 .bg_active{
@@ -628,7 +657,6 @@ th:hover, tr:hover {
 
 /* Media Query for Responsive Design */
 @media only screen and (max-width: 768px) {
-
   .container-Homepage {
     display: flex;
     flex-direction: column;
@@ -638,18 +666,18 @@ th:hover, tr:hover {
   }
   .aside_confirm_section {
     width: 100%;
-        display: flex;
-        justify-content: space-evenly;
+    display: flex;
+    justify-content: space-evenly;
   }
-  
+
   .inner_scetion {
     margin: 0;
   }
-  .nav_username{
+  .nav_username {
     width: 15em;
     margin: 0;
   }
-  .nav_username h3{
+  .nav_username h3 {
     font-size: 0.7em;
   }
 
@@ -689,6 +717,3 @@ th:hover, tr:hover {
     margin-top: 1em;
   }
 }
-
-
-

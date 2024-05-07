@@ -102,7 +102,7 @@ function InformationSection({ userData }) {
             style={{
               transition: "max-height 0.5s ease-in-out",
               overflow: "hidden",
-              maxHeight: isOpen ? "1000px" : "0",
+
             }}
           >
             <table id="information-table" className="section-content">
@@ -145,7 +145,9 @@ function InformationSection({ userData }) {
                 </tr>
                 <tr className="bg_active">
                   <th>Account Status</th>
-                  <td>{userDetails.accountStatus || "N/A"} </td>
+                  <td style={{ fontWeight: 'bolder', color: userDetails.accountStatus === "Active" ? "green" : "red" }}>
+                    {userDetails.accountStatus || "N/A"}
+                  </td>
                 </tr>
                 <tr>
                   <th>Department</th>
