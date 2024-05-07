@@ -1397,3 +1397,4 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2024-05-07 17:51:32,343 - msgraph-backend - DEBUG - Attempting to acquire a new token.
 2024-05-07 17:51:32,343 - msgraph-backend - INFO - Token acquired successfully.
 2024-05-07 17:51:32,346 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-07 17:51:33,419 - msgraph-backend - INFO - Response status code: 200
