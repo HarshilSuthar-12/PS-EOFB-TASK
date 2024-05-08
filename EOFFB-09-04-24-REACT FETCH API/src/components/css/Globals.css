@@ -13,7 +13,8 @@
   --border-color: 0.2px solid #0f4876;
   --input-field-color: none;
   --input-field-text-color: none;
-  --button-color: #d17c24;
+  /* --button-color: #d17c24; */
+  --button-color: #ED6C02;
   --title-color: #0f4876;
   --transition_effect: all 0.2s linear;
 }
@@ -393,8 +394,9 @@ tr:hover,
 tr:hover,
 #domain-table th:hover,
 tr:hover {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  /* background-color: var(--primary-color); */
+  /* color: var(--secondary-color); */
+  background-color: #e2e1e1;
 }
 
 .section-content {
@@ -649,11 +651,9 @@ tr:hover {
   width: 100% !important;
 }
 
-/* 
-.bg_active{
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-} */
+.css-csmqbv-MuiPaper-root-MuiDialog-paper {
+  padding: 1em !important;
+}
 
 /* Media Query for Responsive Design */
 @media only screen and (max-width: 768px) {

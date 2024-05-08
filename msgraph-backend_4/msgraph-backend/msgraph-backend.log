@@ -3502,3 +3502,377 @@ For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/St
 2024-05-07 20:06:00,768 - msgraph-backend - INFO - Token acquired successfully.
 2024-05-07 20:06:00,768 - msgraph-backend - INFO - Token retrieved successfully.
 2024-05-07 20:06:01,889 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:13:46,750 - msgraph-backend - DEBUG - Incoming request: OPTIONS /employee_info/demo@productsquads.co
+2024-05-08 12:13:46,765 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:13:48,163 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:13:48,163 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:13:48,179 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:13:48,195 - msgraph-backend - DEBUG - Incoming request: GET /employee_info/demo@productsquads.co
+2024-05-08 12:13:48,195 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:13:48,195 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:13:48,195 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:13:48,226 - msgraph-backend - DEBUG - Fetching employee info for user_id: demo@productsquads.co
+2024-05-08 12:13:48,228 - msgraph-backend - DEBUG - Starting fetch_employee_info for user_id: demo@productsquads.co
+2024-05-08 12:13:48,228 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:13:48,228 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:13:48,228 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:13:49,544 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: demo@productsquads.co
+2024-05-08 12:13:49,544 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:13:49,544 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:13:49,544 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:13:50,573 - msgraph-backend - DEBUG - Successfully listed groups for user ID: demo@productsquads.co with active status.
+2024-05-08 12:13:50,573 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: demo@productsquads.co
+2024-05-08 12:13:50,573 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:13:50,573 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:13:50,573 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:13:51,529 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: demo@productsquads.co with active status.
+2024-05-08 12:13:51,529 - msgraph-backend - DEBUG - Successfully fetched extended employee info for user ID: demo@productsquads.co
+2024-05-08 12:13:51,529 - msgraph-backend - DEBUG - Starting fetch_manager_info for user_id: demo@productsquads.co
+2024-05-08 12:13:51,529 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:13:51,529 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:13:51,529 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:13:52,564 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:17:43,863 - msgraph-backend - DEBUG - Incoming request: OPTIONS /employee_info/tesths@productsquads.co
+2024-05-08 12:17:43,866 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:17:43,868 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:17:43,868 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:17:43,870 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:17:43,887 - msgraph-backend - DEBUG - Incoming request: GET /employee_info/tesths@productsquads.co
+2024-05-08 12:17:43,889 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:17:43,890 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:17:43,890 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:17:43,892 - msgraph-backend - DEBUG - Fetching employee info for user_id: tesths@productsquads.co
+2024-05-08 12:17:43,892 - msgraph-backend - DEBUG - Starting fetch_employee_info for user_id: tesths@productsquads.co
+2024-05-08 12:17:43,892 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:17:43,892 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:17:43,900 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:17:45,201 - msgraph-backend - DEBUG - Manager not assigned for user ID: {user_id}
+2024-05-08 12:17:45,202 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: tesths@productsquads.co
+2024-05-08 12:17:45,203 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:17:45,203 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:17:45,203 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:17:46,364 - msgraph-backend - DEBUG - Successfully listed groups for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:17:46,365 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: tesths@productsquads.co
+2024-05-08 12:17:46,366 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:17:46,367 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:17:46,369 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:17:47,568 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:17:47,568 - msgraph-backend - DEBUG - Successfully fetched extended employee info for user ID: tesths@productsquads.co
+2024-05-08 12:17:47,571 - msgraph-backend - DEBUG - Starting fetch_manager_info for user_id: tesths@productsquads.co
+2024-05-08 12:17:47,573 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:17:47,573 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:17:47,575 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:17:48,640 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:17:58,836 - msgraph-backend - DEBUG - Incoming request: GET /employee_info/tesths@productsquads.co
+2024-05-08 12:17:58,837 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:17:58,839 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:17:58,839 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:17:58,841 - msgraph-backend - DEBUG - Fetching employee info for user_id: tesths@productsquads.co
+2024-05-08 12:17:58,841 - msgraph-backend - DEBUG - Starting fetch_employee_info for user_id: tesths@productsquads.co
+2024-05-08 12:17:58,842 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:17:58,843 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:17:58,843 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:18:00,022 - msgraph-backend - DEBUG - Manager not assigned for user ID: {user_id}
+2024-05-08 12:18:00,022 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: tesths@productsquads.co
+2024-05-08 12:18:00,022 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:18:00,022 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:18:00,034 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:18:01,253 - msgraph-backend - DEBUG - Successfully listed groups for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:18:01,253 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: tesths@productsquads.co
+2024-05-08 12:18:01,253 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:18:01,253 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:18:01,258 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:18:02,364 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:18:02,364 - msgraph-backend - DEBUG - Successfully fetched extended employee info for user ID: tesths@productsquads.co
+2024-05-08 12:18:02,366 - msgraph-backend - DEBUG - Starting fetch_manager_info for user_id: tesths@productsquads.co
+2024-05-08 12:18:02,367 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:18:02,367 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:18:02,367 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:18:03,422 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:19:50,798 - msgraph-backend - DEBUG - Incoming request: GET /employee_info/tesths@productsquads.co
+2024-05-08 12:19:50,799 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:19:50,799 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:19:50,799 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:19:50,799 - msgraph-backend - DEBUG - Fetching employee info for user_id: tesths@productsquads.co
+2024-05-08 12:19:50,799 - msgraph-backend - DEBUG - Starting fetch_employee_info for user_id: tesths@productsquads.co
+2024-05-08 12:19:50,799 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:19:50,799 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:19:50,799 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:19:51,984 - msgraph-backend - DEBUG - Manager not assigned for user ID: {user_id}
+2024-05-08 12:19:51,984 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: tesths@productsquads.co
+2024-05-08 12:19:51,984 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:19:51,984 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:19:51,984 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:19:53,160 - msgraph-backend - DEBUG - Successfully listed groups for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:19:53,163 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: tesths@productsquads.co
+2024-05-08 12:19:53,164 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:19:53,164 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:19:53,168 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:19:54,278 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:19:54,278 - msgraph-backend - DEBUG - Successfully fetched extended employee info for user ID: tesths@productsquads.co
+2024-05-08 12:19:54,284 - msgraph-backend - DEBUG - Starting fetch_manager_info for user_id: tesths@productsquads.co
+2024-05-08 12:19:54,284 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:19:54,284 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:19:54,284 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:19:55,642 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:22:05,032 - msgraph-backend - DEBUG - Incoming request: GET /employee_info/tesths@productsquads.co
+2024-05-08 12:22:05,033 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:22:05,034 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:22:05,034 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:22:05,036 - msgraph-backend - DEBUG - Fetching employee info for user_id: tesths@productsquads.co
+2024-05-08 12:22:05,037 - msgraph-backend - DEBUG - Starting fetch_employee_info for user_id: tesths@productsquads.co
+2024-05-08 12:22:05,037 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:22:05,038 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:22:05,038 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:22:06,215 - msgraph-backend - DEBUG - Manager not assigned for user ID: {user_id}
+2024-05-08 12:22:06,216 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: tesths@productsquads.co
+2024-05-08 12:22:06,216 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:22:06,217 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:22:06,217 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:22:07,745 - msgraph-backend - DEBUG - Successfully listed groups for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:22:07,745 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: tesths@productsquads.co
+2024-05-08 12:22:07,745 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:22:07,751 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:22:07,752 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:22:09,093 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:22:09,093 - msgraph-backend - DEBUG - Successfully fetched extended employee info for user ID: tesths@productsquads.co
+2024-05-08 12:22:09,093 - msgraph-backend - DEBUG - Starting fetch_manager_info for user_id: tesths@productsquads.co
+2024-05-08 12:22:09,093 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:22:09,093 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:22:09,093 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:22:10,317 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:49:38,148 - msgraph-backend - DEBUG - Incoming request: OPTIONS /employee_info/demo@productsquads.co
+2024-05-08 12:49:38,157 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:49:38,163 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:49:38,163 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:49:38,177 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:49:38,212 - msgraph-backend - DEBUG - Incoming request: GET /employee_info/demo@productsquads.co
+2024-05-08 12:49:38,212 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:49:38,212 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:49:38,212 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:49:38,222 - msgraph-backend - DEBUG - Fetching employee info for user_id: demo@productsquads.co
+2024-05-08 12:49:38,222 - msgraph-backend - DEBUG - Starting fetch_employee_info for user_id: demo@productsquads.co
+2024-05-08 12:49:38,222 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:49:38,222 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:49:38,229 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:49:39,596 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: demo@productsquads.co
+2024-05-08 12:49:39,596 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:49:39,596 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:49:39,596 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:49:40,732 - msgraph-backend - DEBUG - Successfully listed groups for user ID: demo@productsquads.co with active status.
+2024-05-08 12:49:40,733 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: demo@productsquads.co
+2024-05-08 12:49:40,733 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:49:40,735 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:49:40,736 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:49:41,840 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: demo@productsquads.co with active status.
+2024-05-08 12:49:41,841 - msgraph-backend - DEBUG - Successfully fetched extended employee info for user ID: demo@productsquads.co
+2024-05-08 12:49:41,844 - msgraph-backend - DEBUG - Starting fetch_manager_info for user_id: demo@productsquads.co
+2024-05-08 12:49:41,844 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:49:41,845 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:49:41,845 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:49:42,869 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:50:01,196 - msgraph-backend - DEBUG - Incoming request: OPTIONS /employee_info/tesths@productsquads.co
+2024-05-08 12:50:01,197 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:01,198 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:01,198 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:01,200 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:50:01,226 - msgraph-backend - DEBUG - Incoming request: GET /employee_info/tesths@productsquads.co
+2024-05-08 12:50:01,226 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:01,226 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:01,226 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:01,226 - msgraph-backend - DEBUG - Fetching employee info for user_id: tesths@productsquads.co
+2024-05-08 12:50:01,226 - msgraph-backend - DEBUG - Starting fetch_employee_info for user_id: tesths@productsquads.co
+2024-05-08 12:50:01,226 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:01,231 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:01,231 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:02,416 - msgraph-backend - DEBUG - Manager not assigned for user ID: {user_id}
+2024-05-08 12:50:02,416 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: tesths@productsquads.co
+2024-05-08 12:50:02,416 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:02,416 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:02,416 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:03,570 - msgraph-backend - DEBUG - Successfully listed groups for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:50:03,570 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: tesths@productsquads.co
+2024-05-08 12:50:03,570 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:03,570 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:03,570 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:04,687 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:50:04,688 - msgraph-backend - DEBUG - Successfully fetched extended employee info for user ID: tesths@productsquads.co
+2024-05-08 12:50:04,690 - msgraph-backend - DEBUG - Starting fetch_manager_info for user_id: tesths@productsquads.co
+2024-05-08 12:50:04,690 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:04,690 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:04,690 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:05,750 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:50:08,617 - msgraph-backend - DEBUG - Incoming request: OPTIONS /offboard/tesths@productsquads.co/confirm
+2024-05-08 12:50:08,618 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:08,619 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:08,620 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:08,621 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:50:08,634 - msgraph-backend - DEBUG - Incoming request: POST /offboard/tesths@productsquads.co/confirm
+2024-05-08 12:50:08,634 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:08,635 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:08,636 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:08,639 - msgraph-backend - DEBUG - Initiating offboarding for user_id: tesths@productsquads.co
+2024-05-08 12:50:08,639 - msgraph-backend - DEBUG - Fetching employee info for user_id: tesths@productsquads.co
+2024-05-08 12:50:08,640 - msgraph-backend - DEBUG - Starting fetch_employee_info for user_id: tesths@productsquads.co
+2024-05-08 12:50:08,640 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:08,641 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:08,641 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:09,912 - msgraph-backend - DEBUG - Manager not assigned for user ID: {user_id}
+2024-05-08 12:50:09,912 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: tesths@productsquads.co
+2024-05-08 12:50:09,912 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:09,912 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:09,912 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:11,037 - msgraph-backend - DEBUG - Successfully listed groups for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:50:11,037 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: tesths@productsquads.co
+2024-05-08 12:50:11,037 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:11,037 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:11,040 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:12,127 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:50:12,127 - msgraph-backend - DEBUG - Successfully fetched extended employee info for user ID: tesths@productsquads.co
+2024-05-08 12:50:12,127 - msgraph-backend - DEBUG - Starting fetch_manager_info for user_id: tesths@productsquads.co
+2024-05-08 12:50:12,127 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:12,127 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:12,127 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:13,254 - msgraph-backend - DEBUG - Starting disable_employee_account for user_id: tesths@productsquads.co
+2024-05-08 12:50:13,254 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:13,256 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:13,258 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:14,522 - msgraph-backend - DEBUG - Successfully disabled account for user ID: tesths@productsquads.co
+2024-05-08 12:50:14,522 - msgraph-backend - INFO - Successfully disabled account for tesths@productsquads.co. Result: Successfully disabled account for user ID: tesths@productsquads.co
+2024-05-08 12:50:14,525 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:50:14,525 - msgraph-backend - DEBUG - Removing user_id: tesths@productsquads.co from groups
+2024-05-08 12:50:14,525 - msgraph-backend - DEBUG - Starting remove_employee_from_groups for user_id: tesths@productsquads.co
+2024-05-08 12:50:14,525 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:14,534 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:14,534 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:14,535 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: tesths@productsquads.co
+2024-05-08 12:50:14,535 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:14,536 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:14,537 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:15,372 - msgraph-backend - DEBUG - Incoming request: GET /offboard/tesths@productsquads.co/confirmation
+2024-05-08 12:50:15,388 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:15,388 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:15,389 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:15,389 - msgraph-backend - DEBUG - Generating final confirmation for user_id: tesths@productsquads.co
+2024-05-08 12:50:15,389 - msgraph-backend - DEBUG - Starting fetch_employee_info for user_id: tesths@productsquads.co
+2024-05-08 12:50:15,389 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:15,389 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:15,389 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:16,374 - msgraph-backend - DEBUG - Successfully listed groups for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:50:16,374 - msgraph-backend - DEBUG - No groups found for user ID: tesths@productsquads.co
+2024-05-08 12:50:16,374 - msgraph-backend - DEBUG - Revoking licenses for user_id: tesths@productsquads.co
+2024-05-08 12:50:16,390 - msgraph-backend - DEBUG - Starting revoke_employee_licenses_by_id for user_id: tesths@productsquads.co
+2024-05-08 12:50:16,390 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:16,391 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:16,391 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:16,391 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: tesths@productsquads.co
+2024-05-08 12:50:16,391 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:16,391 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:16,391 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:17,154 - msgraph-backend - DEBUG - Manager not assigned for user ID: {user_id}
+2024-05-08 12:50:17,155 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: tesths@productsquads.co
+2024-05-08 12:50:17,155 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:17,157 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:17,157 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:18,117 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:50:18,117 - msgraph-backend - DEBUG - No licenses found for user ID: tesths@productsquads.co
+2024-05-08 12:50:18,201 - msgraph-backend - DEBUG - Successfully listed groups for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:50:18,201 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: tesths@productsquads.co
+2024-05-08 12:50:18,201 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:18,201 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:18,207 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:19,286 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:50:19,286 - msgraph-backend - DEBUG - Successfully fetched extended employee info for user ID: tesths@productsquads.co
+2024-05-08 12:50:19,286 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: tesths@productsquads.co
+2024-05-08 12:50:19,286 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:19,290 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:19,290 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:20,203 - msgraph-backend - DEBUG - Successfully listed groups for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:50:20,215 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: tesths@productsquads.co
+2024-05-08 12:50:20,215 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:20,215 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:20,215 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:21,185 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:50:21,185 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:50:55,710 - msgraph-backend - DEBUG - Incoming request: GET /employee_info/tesths@productsquads.co
+2024-05-08 12:50:55,711 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:55,712 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:55,713 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:55,714 - msgraph-backend - DEBUG - Fetching employee info for user_id: tesths@productsquads.co
+2024-05-08 12:50:55,715 - msgraph-backend - DEBUG - Starting fetch_employee_info for user_id: tesths@productsquads.co
+2024-05-08 12:50:55,715 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:55,715 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:55,717 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:56,891 - msgraph-backend - DEBUG - Manager not assigned for user ID: {user_id}
+2024-05-08 12:50:56,891 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: tesths@productsquads.co
+2024-05-08 12:50:56,895 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:56,895 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:56,895 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:58,181 - msgraph-backend - DEBUG - Successfully listed groups for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:50:58,181 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: tesths@productsquads.co
+2024-05-08 12:50:58,181 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:58,181 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:58,181 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:50:59,302 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: tesths@productsquads.co with active status.
+2024-05-08 12:50:59,303 - msgraph-backend - DEBUG - Successfully fetched extended employee info for user ID: tesths@productsquads.co
+2024-05-08 12:50:59,304 - msgraph-backend - DEBUG - Starting fetch_manager_info for user_id: tesths@productsquads.co
+2024-05-08 12:50:59,305 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:50:59,306 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:50:59,306 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:51:00,379 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 12:53:03,843 - msgraph-backend - DEBUG - Incoming request: GET /employee_info/demo@productsquads.co
+2024-05-08 12:53:03,843 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:53:03,845 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:53:03,845 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:53:03,846 - msgraph-backend - DEBUG - Fetching employee info for user_id: demo@productsquads.co
+2024-05-08 12:53:03,846 - msgraph-backend - DEBUG - Starting fetch_employee_info for user_id: demo@productsquads.co
+2024-05-08 12:53:03,847 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:53:03,847 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:53:03,848 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:53:05,067 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: demo@productsquads.co
+2024-05-08 12:53:05,067 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:53:05,067 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:53:05,067 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:53:06,197 - msgraph-backend - DEBUG - Successfully listed groups for user ID: demo@productsquads.co with active status.
+2024-05-08 12:53:06,197 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: demo@productsquads.co
+2024-05-08 12:53:06,197 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:53:06,197 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:53:06,197 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:53:07,292 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: demo@productsquads.co with active status.
+2024-05-08 12:53:07,295 - msgraph-backend - DEBUG - Successfully fetched extended employee info for user ID: demo@productsquads.co
+2024-05-08 12:53:07,297 - msgraph-backend - DEBUG - Starting fetch_manager_info for user_id: demo@productsquads.co
+2024-05-08 12:53:07,299 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 12:53:07,299 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 12:53:07,300 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 12:53:08,380 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 13:06:58,913 - msgraph-backend - DEBUG - Incoming request: OPTIONS /employee_info/tesths@productsquads.co
+2024-05-08 13:06:58,923 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 13:06:58,930 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 13:06:58,931 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 13:06:58,939 - msgraph-backend - INFO - Response status code: 200
+2024-05-08 13:06:58,959 - msgraph-backend - DEBUG - Incoming request: GET /employee_info/tesths@productsquads.co
+2024-05-08 13:06:58,960 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 13:06:58,961 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 13:06:58,962 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 13:06:58,971 - msgraph-backend - DEBUG - Fetching employee info for user_id: tesths@productsquads.co
+2024-05-08 13:06:58,971 - msgraph-backend - DEBUG - Starting fetch_employee_info for user_id: tesths@productsquads.co
+2024-05-08 13:06:58,972 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 13:06:58,973 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 13:06:58,975 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 13:07:00,566 - msgraph-backend - DEBUG - Manager not assigned for user ID: {user_id}
+2024-05-08 13:07:00,567 - msgraph-backend - DEBUG - Starting list_employee_groups for user_id: tesths@productsquads.co
+2024-05-08 13:07:00,568 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 13:07:00,569 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 13:07:00,569 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 13:07:01,684 - msgraph-backend - DEBUG - Successfully listed groups for user ID: tesths@productsquads.co with active status.
+2024-05-08 13:07:01,685 - msgraph-backend - DEBUG - Starting fetch_employee_licenses for user_id: tesths@productsquads.co
+2024-05-08 13:07:01,686 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 13:07:01,687 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 13:07:01,687 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 13:07:02,798 - msgraph-backend - DEBUG - Successfully fetched licenses for user ID: tesths@productsquads.co with active status.
+2024-05-08 13:07:02,799 - msgraph-backend - DEBUG - Successfully fetched extended employee info for user ID: tesths@productsquads.co
+2024-05-08 13:07:02,801 - msgraph-backend - DEBUG - Starting fetch_manager_info for user_id: tesths@productsquads.co
+2024-05-08 13:07:02,801 - msgraph-backend - DEBUG - Attempting to acquire a new token.
+2024-05-08 13:07:02,802 - msgraph-backend - INFO - Token acquired successfully.
+2024-05-08 13:07:02,802 - msgraph-backend - INFO - Token retrieved successfully.
+2024-05-08 13:07:03,909 - msgraph-backend - INFO - Response status code: 200

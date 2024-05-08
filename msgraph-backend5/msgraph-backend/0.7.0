@@ -1,0 +1,5 @@
+Collecting aiofiles
+  Downloading aiofiles-23.2.1-py3-none-any.whl.metadata (9.7 kB)
+Downloading aiofiles-23.2.1-py3-none-any.whl (15 kB)
+Installing collected packages: aiofiles
+Successfully installed aiofiles-23.2.1

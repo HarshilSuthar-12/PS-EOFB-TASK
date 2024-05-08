@@ -232,13 +232,36 @@ const FinalConfirmationDialog = ({ open, onClose, confirmationData, loading }) =
 
   const [currentCheckboxIndex, setCurrentCheckboxIndex] = useState(-1); // Start with -1 to indicate no checkbox is being shown
 
+  // useEffect(() => {
+  //   if (currentCheckboxIndex < Object.keys(domains).length) {
+  //     const timer = setTimeout(() => {
+  //       setCurrentCheckboxIndex(currentCheckboxIndex + 1);
+  //     }, 2000); // Change the delay time here (in milliseconds)
+  //     return () => clearTimeout(timer);
+  //   } else {
+  //     // All checkboxes have been shown, update all domains to true
+  //     setDomains((prevDomains) => {
+  //       const updatedDomains = {};
+  //       for (const domain in prevDomains) {
+  //         updatedDomains[domain] = true;
+  //       }
+  //       return updatedDomains;
+  //     });
+  //   }
+  // }, [currentCheckboxIndex, domains]);
+
+
   useEffect(() => {
     if (currentCheckboxIndex < Object.keys(domains).length) {
       const timer = setTimeout(() => {
         setCurrentCheckboxIndex(currentCheckboxIndex + 1);
       }, 2000); // Change the delay time here (in milliseconds)
       return () => clearTimeout(timer);
-    } else {
+    }
+  }, [currentCheckboxIndex, domains]);
+  
+  useEffect(() => {
+    if (currentCheckboxIndex >= Object.keys(domains).length) {
       // All checkboxes have been shown, update all domains to true
       setDomains((prevDomains) => {
         const updatedDomains = {};
@@ -249,6 +272,10 @@ const FinalConfirmationDialog = ({ open, onClose, confirmationData, loading }) =
       });
     }
   }, [currentCheckboxIndex, domains]);
+  
+  
+
+
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth maxWidth="lg">
@@ -286,7 +313,7 @@ const FinalConfirmationDialog = ({ open, onClose, confirmationData, loading }) =
             <CircularProgress />
           </div>
         )}
-      </DialogContent>
+      </DialogContent>  
       <DialogActions>
         <Button
           onClick={handleClose} // Call handleClose function on button click
