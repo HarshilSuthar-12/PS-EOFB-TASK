@@ -123,6 +123,12 @@ function InformationSection({ userData }) {
                   <th>Email</th>
                   <td>{userDetails.user || "N/A"}</td>
                 </tr> */}
+                <tr className="bg_active">
+                  <th>Account Status</th>
+                  <td style={{ fontWeight: 'bolder', color: userDetails.accountStatus === "Active" ? "green" : "red" }}>
+                    {userDetails.accountStatus || "N/A"}
+                  </td>
+                </tr>
                 <tr>
                   <th>Manager</th>
                   <td>{userDetails.manager.name || "N/A"}</td>
@@ -142,12 +148,6 @@ function InformationSection({ userData }) {
                 <tr>
                   <th>Created Date</th>
                   <td>{formatDate(userDetails.creationDate) || "N/A"}</td>
-                </tr>
-                <tr className="bg_active">
-                  <th>Account Status</th>
-                  <td style={{ fontWeight: 'bolder', color: userDetails.accountStatus === "Active" ? "green" : "red" }}>
-                    {userDetails.accountStatus || "N/A"}
-                  </td>
                 </tr>
                 <tr>
                   <th>Department</th>

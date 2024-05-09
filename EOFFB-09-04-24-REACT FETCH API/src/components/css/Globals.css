@@ -644,11 +644,14 @@ tr:hover {
 .log-btn{
   display: flex !important;
 }
-.css-1rwt2y5-MuiButtonBase-root-MuiButton-root,
+/* .css-1rwt2y5-MuiButtonBase-root-MuiButton-root,
 .css-1l9sosn-MuiButtonBase-root-MuiButton-root {
   margin-top: 20px !important;
-  /* margin-right: 10px !important; */
   width: 100% !important;
+} */
+
+.css-1rwt2y5-MuiButtonBase-root-MuiButton-root{
+  margin-top: 0px !important;
 }
 
 .css-csmqbv-MuiPaper-root-MuiDialog-paper {
