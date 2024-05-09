@@ -14,18 +14,6 @@ const demoLicensesData = {
       isChecked: false,
       isDisabled: true,
     },
-    {
-      name: "",
-      status: "",
-      isChecked: false,
-      isDisabled: true,
-    },
-    {
-      activeStatus: true,
-      status: "",
-      isChecked: false,
-      isDisabled: true,
-    },
   ],
 };
 

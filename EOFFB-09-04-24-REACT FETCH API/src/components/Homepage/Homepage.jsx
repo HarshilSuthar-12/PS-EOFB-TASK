@@ -131,9 +131,6 @@
 
 // export default Homepage;
 
-
-
-
 // import React, { useState } from "react";
 // import Aside from "../Aside/Aside";
 // import ExecutionComponent from "../Confirm/ExecutionComponent";
@@ -160,7 +157,7 @@
 //       )
 //         .then((response) => {
 //           if (!response.ok) {
-  
+
 //             throw new Error("Network response was not ok");
 //           }
 //           return response.json();
@@ -176,12 +173,12 @@
 //     }
 //   };
 //   const handleIdSubmit = async (id) => {
-//     setIsDataFetched(false); 
+//     setIsDataFetched(false);
 //     await fetchUserData(id);
 //   };
 
 //   const fetchUserId =  () => {
-//     return userData?.userPrincipalName; 
+//     return userData?.userPrincipalName;
 //   };
 
 //   return (
@@ -213,8 +210,6 @@
 // };
 
 // export default Homepage;
-
-
 
 // import React, { useState } from "react";
 // import Aside from "../Aside/Aside";
@@ -296,9 +291,6 @@
 
 // export default Homepage;
 
-
-
-
 import React, { useState } from "react";
 import Aside from "../Aside/Aside";
 import ExecutionComponent from "../Confirm/ExecutionComponent";
@@ -350,34 +342,38 @@ const Homepage = () => {
   return (
     <div className="container-Homepage">
       <div className="aside_confirm_section">
-        <Aside onIdSubmit={handleIdSubmit} setIsDataFetched={setIsDataFetched} />
+        <Aside
+          onIdSubmit={handleIdSubmit}
+          setIsDataFetched={setIsDataFetched}
+        />
         {isDataFetched && (
+          <>
           <ExecutionComponent
             fetchUserId={fetchUserId}
             fetchUserData={fetchUserData}
             userData={userData}
             setIsConfirmationOpen={setIsConfirmationOpen}
-          />
+            />
+            <LogViewer/>
+            </>
         )}
       </div>
       <div className="information-container">
-        {isDataFetched && (
-          <>
-            <InformationSection userData={userData} />
-            <div className="inner_scetion">
-              <GroupsSection userData={userData} />
-              <LicensesSection userData={userData} />
-              {/* <DomainSection userData={userData} /> */}
-            {!isConfirmationOpen && <LogViewer />} 
-            </div>
-          </>
-        )}
-      <FinalConfirmationDialog
-        open={isConfirmationOpen}
-        onClose={() => setIsConfirmationOpen(false)}
+        {/* {isDataFetched && ( */}
+        <>
+          <InformationSection userData={userData} />
+          <div className="inner_scetion">
+            <GroupsSection userData={userData} />
+            <LicensesSection userData={userData} />
+            {/* <DomainSection userData={userData} /> */}
+          </div>
+        </>
+        <FinalConfirmationDialog
+          open={isConfirmationOpen}
+          onClose={() => setIsConfirmationOpen(false)}
         />
+      </div>
     </div>
-        </div>
   );
 };
 
