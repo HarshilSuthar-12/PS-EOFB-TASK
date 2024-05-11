@@ -1,6 +1,0 @@
-fastapi
-uvicorn
-msgraph-core
-msgraph-sdk
-msal
-httpx
